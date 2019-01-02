@@ -15,6 +15,9 @@ namespace datezite.Models
         public string ReturnUrl { get; set; }
     }
 
+    public bool test{return}
+
+
     public class SendCodeViewModel
     {
         public string SelectedProvider { get; set; }
