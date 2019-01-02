@@ -199,6 +199,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\RegisterNewUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lux.css" />
@@ -287,10 +288,12 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\User\FirstPage.cshtml" />
     <Content Include="Views\Shared\_SignedInLayout.cshtml" />
+    <Content Include="Views\CheckUsers.cshtml" />
+    <Content Include="Views\User\YourProfile.cshtml" />
+    <Content Include="Views\User\EditYourProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="Views\HeaderAnonymous\" />
     <Folder Include="Views\HeaderSignedIn\" />
   </ItemGroup>

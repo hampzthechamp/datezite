@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using datezite.Models;
+using datezite.ViewModels;
 
 namespace datezite.Controllers
 {
@@ -16,6 +17,8 @@ namespace datezite.Controllers
         }
 
         public ActionResult Create(User user) {
+            _context.Users.Add(user);
+            _context.SaveChanges();
             return View();
         }
 
