@@ -3,12 +3,24 @@
     ViewBag.Title = "OtherProfile";
     Layout = "~/Views/Shared/_SignedInLayout.cshtml";
 }
+@using datezite.Models
+@model UserFriendsModel
+
 
 <h2></h2>
 <div class="container-fluid">
     <div class="row">
         <div class="col" style="padding:20px">
             <h3>Vänner</h3>
+
+            <table>
+                @foreach (var user in Model.FriendList)
+                {
+                    <tr>
+                        <td>user.Förnamn+ " " +user.Efternamn</td>
+                    </tr>
+                }
+            </table>
 
         </div>
         <div class="col-6">
@@ -40,7 +52,7 @@
                 <label for="inlägg">Inlägg:</label>
                 <textarea class="form-control" rows="3" id="entry"></textarea>
             </div>
-            
+
         </div>
     </div>
 </div>
