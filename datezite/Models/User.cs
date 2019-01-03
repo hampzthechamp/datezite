@@ -26,7 +26,13 @@ namespace datezite.Models
         [Display(Name = "E-post adress")]
         public String Email { get; set; }
         [Display(Name = "Kön")]
-        public String Gender { get; set; }
+        public Gender GenderOfMember { get; set; }
+
+        public enum Gender {
+            Man,
+            Kvinna,
+            Annat
+        }
 
     }
 }

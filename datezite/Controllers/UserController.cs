@@ -25,6 +25,9 @@ namespace datezite.Controllers
         public ActionResult EditYourProfile() {
             return View();
         }
+        public ActionResult Update(User user) {
+            return View();
+        }
 
         protected override void Dispose(bool disposing)
         {
