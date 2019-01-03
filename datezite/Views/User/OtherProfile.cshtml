@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "OtherProfile";
+    Layout = "~/Views/Shared/_SignedInLayout.cshtml";
+}
+
+<h2></h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" style="padding:20px">
+            <h3>Vänner</h3>
+
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col">
+                    <div class="text-center">
+                        <img src="http://4.bp.blogspot.com/--l6hyba9eXc/Tqg3Eaw0DaI/AAAAAAAADJE/VmzHzRYyLuM/s1600/BlackCock.jpg" class="img-thumbnail rounded" alt="" />
+                    </div>
+                </div>
+                <div class="col">
+                    <label>Förnamn</label> <label>Efternamn</label><br />
+                    <label>Kön</label><br />
+                    <label>Ålder</label><br />
+                    <label>Sysselsättning</label><br />
+                    <label>Intressen</label><br />
+
+                </div>
+
+            </div>
+            <div class="col">
+                <button type="submit" class="btn-dark btn-block">Lägg till som vän</button><br />
+                <button type="submit" class="btn-dark btn-block">Passar vi ihop? :O</button>
+            </div>
+
+        </div>
+        <div class="col">
+            <h3>Vägg</h3>
+            <div class="form-group">
+                <label for="inlägg">Inlägg:</label>
+                <textarea class="form-control" rows="3" id="entry"></textarea>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

@@ -299,6 +299,7 @@
     <Content Include="Views\CheckUsers.cshtml" />
     <Content Include="Views\User\YourProfile.cshtml" />
     <Content Include="Views\User\EditYourProfile.cshtml" />
+    <Content Include="Views\User\OtherProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -38,5 +38,9 @@ namespace datezite.Controllers
         {
             return View();
         }
+        public ActionResult OtherProfile()
+        {
+            return View();
+        }
     }
 }
