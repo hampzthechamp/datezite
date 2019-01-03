@@ -192,6 +192,10 @@
     <Compile Include="Migrations\201901021550576_Email.Designer.cs">
       <DependentUpon>201901021550576_Email.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901031430506_AddedGenderToUsers.cs" />
+    <Compile Include="Migrations\201901031430506_AddedGenderToUsers.Designer.cs">
+      <DependentUpon>201901031430506_AddedGenderToUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\User.cs" />
@@ -314,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901021550576_Email.resx">
       <DependentUpon>201901021550576_Email.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901031430506_AddedGenderToUsers.resx">
+      <DependentUpon>201901031430506_AddedGenderToUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

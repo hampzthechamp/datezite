@@ -19,6 +19,10 @@ namespace datezite.Controllers
         public ActionResult Create(User user) {
             _context.Users.Add(user);
             _context.SaveChanges();
+            return RedirectToAction("Index", "User/FirstPage");
+        }
+
+        public ActionResult EditYourProfile() {
             return View();
         }
 

@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-lg-6 bg-warning">
             <h4>Registrera dig</h4>
-            @using (Html.BeginForm("Create", "User"))
+            @using (Html.BeginForm("Ceate", "User"))
             {
                 <div class="form-group">
                     @Html.LabelFor(m => m.Username)
@@ -24,7 +24,7 @@
                     @Html.LabelFor(m => m.Password)
                     @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
                 </div>
-                <buttom type="submit" class="btn btn-primary">Registrera</buttom>
+                <button type="submit" class="btn btn-primary">Registrera</button>
 
 
             }
