@@ -10,6 +10,7 @@ namespace datezite.Controllers
 {
     public class UserController : Controller
     {
+
         private ApplicationDbContext _context;
         public UserController()
         {
@@ -34,7 +35,16 @@ namespace datezite.Controllers
             _context.Dispose();
         }
         // GET: User
-        public ViewResult FirstPage()
+        public ActionResult FirstPage()
+        {
+            return View();
+        }
+
+        public ActionResult YourProfile()
+        {
+            return View();
+        }
+        public ActionResult potentialMatches()
         {
             return View();
         }
