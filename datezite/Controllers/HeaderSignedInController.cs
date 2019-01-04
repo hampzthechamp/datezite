@@ -9,9 +9,9 @@ namespace datezite.Controllers
     public class HeaderSignedInController : Controller
     {
         // GET: HeaderSignedIn
-        public ActionResult Index()
+        public ActionResult FirstPage()
         {
-            return View();
+            return View("FirstPage","User");
         }
     }
 }

@@ -40,6 +40,10 @@ namespace datezite.Controllers
             return View();
         }
 
+        public ActionResult MyMatches()
+        {
+            return View();
+        }
         public ActionResult YourProfile()
         {
             return View();
