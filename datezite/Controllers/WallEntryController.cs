@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using datezite.Models;
 
 namespace datezite.Controllers
 {
@@ -12,6 +13,11 @@ namespace datezite.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult PostEntry(WallEntry entry)
+        {
+               
         }
     }
 }
