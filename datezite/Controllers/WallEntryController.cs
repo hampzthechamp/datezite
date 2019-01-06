@@ -15,10 +15,5 @@ namespace datezite.Controllers
             return View();
         }
 
-        /*     public ActionResult PostEntry(WallEntry entry)
-             {
-
-             }
-         } */
     }
 }
