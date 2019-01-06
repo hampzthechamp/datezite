@@ -20,18 +20,16 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item ">
-                    <a class="nav-link" href="PotentialMatches">
-                        Potentiella Matchningar
-                    </a>
+                 <a class="nav-link"   @Html.ActionLink("Potentiella matchningar", "PotentialMatches") </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="myMatches">Mina matchningar</a>
+                    <a class="nav-link" @Html.ActionLink("Mina Matchningar", "MyMatches") </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="YourProfile">Min Profil</a>
+                    <a class="nav-link" @Html.ActionLink("Min profil", "YourProfile") </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="FirstPage">Logga ut</a>
+                    <a class="nav-link"@Html.ActionLink("Logga ut","Index","Home") </a>
                 </li>
 </div>
     </nav>
