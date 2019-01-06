@@ -14,10 +14,7 @@ namespace datezite.Models
         public string Content { get; set; }
         public DateTime Posted { get; set; }
 
-
-        [ForeignKey("AuthorId")]
-        public int Author { get; set; }
-        public User User { get; set; }
+        public User Author { get; set; }
 
 
         [ForeignKey("RecipientId")]

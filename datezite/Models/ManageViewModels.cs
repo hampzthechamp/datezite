@@ -84,13 +84,5 @@ namespace datezite.Models
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
 
-    public class UserFriendsViewModel
-    {
-        public List<User> Friends { get; set; }
-    }
-
-    public class UserWallEntryViewModel
-    {
-        public List<WallEntry> WallPosts { get; set; }
-    }
+    
 }

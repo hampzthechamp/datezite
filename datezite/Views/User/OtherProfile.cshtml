@@ -1,10 +1,11 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "OtherProfile";
     Layout = "~/Views/Shared/_SignedInLayout.cshtml";
 
 }
 
+@using datezite.Models 
+@model UserViewModels
 
 
 
@@ -12,13 +13,17 @@
     <div class="col">
         <h3>Vänner</h3>
 
+        <table>
+            @foreach (var user in Model.Friends)
+            {
+                <tr>
+                    @user.Firstname @user.Lastname;
+                </tr>
+                
 
-        @foreach (var user in Model.Friends)
-         {
 
-
-         }
-
+            }
+        </table>
 
     </div>
     <div class="col-6">
@@ -59,23 +64,16 @@
 
         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 20px">Publicera</button>
         <div id="inlägg">
-            @*@foreach (var entry in entryList)
-                {*@
-            <div class="card border-light mb-3" style="max-width: 20rem; ">
-                <div class="card-header">Förnamn Efternamn</div>
-                <div class="card-body">
+            @foreach (var entry in Model.Entrys)
+                {
+                <div class="card border-light mb-3" style="max-width: 20rem; ">
+                    <div class="card-header"><a href="" class="card-link">@entry.Author.Firstname @entry.Author.Lastname</a></div>
+                    <div class="card-body">
 
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card border-light mb-3" style="max-width: 20rem; ">
-                <div class="card-header">Förnamn Efternamn</div>
-                <div class="card-body">
-
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            @*}*@
+                        <p class="card-text">@entry.Content</p>
+                    </div>
+                </div>            
+                }
         </div>
     </div>
 
