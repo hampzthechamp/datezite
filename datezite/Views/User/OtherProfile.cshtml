@@ -14,15 +14,15 @@
         <h3>Vänner</h3>
 
         <table>
-            @foreach (var user in Model.Friends)
-            {
+            @*@foreach (var user in Model.Friends)
+            {*@
                 <tr>
-                    @user.Firstname @user.Lastname;
+                    @*@user.Firstname @user.Lastname;*@
                 </tr>
                 
 
 
-            }
+            @*}*@
         </table>
 
     </div>
@@ -64,7 +64,7 @@
 
         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 20px">Publicera</button>
         <div id="inlägg">
-            @foreach (var entry in Model.Entrys)
+            @*@foreach (var entry in Model.Entrys)
                 {
                 <div class="card border-light mb-3" style="max-width: 20rem; ">
                     <div class="card-header"><a href="" class="card-link">@entry.Author.Firstname @entry.Author.Lastname</a></div>
@@ -73,7 +73,7 @@
                         <p class="card-text">@entry.Content</p>
                     </div>
                 </div>            
-                }
+                }*@
         </div>
     </div>
 
