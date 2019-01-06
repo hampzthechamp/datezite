@@ -20,7 +20,7 @@ namespace datezite.Controllers
         public ActionResult Create(User user) {
             _context.Users.Add(user);
             _context.SaveChanges();
-            return RedirectToAction("Index", "User/YourProfile");
+            return RedirectToAction("YourProfile", "User");
         }
 
         public ActionResult EditYourProfile() {
