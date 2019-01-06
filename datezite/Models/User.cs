@@ -24,8 +24,6 @@ namespace datezite.Models
         public String Firstname { get; set; }
         [Display(Name = "Efternamn")]
         public String Lastname { get; set; }
-        [Display(Name = "E-post adress")]
-        public String Email { get; set; }
         [Display(Name = "Kön")]
         public Gender GenderOfMember { get; set; }
         public ICollection<User> Friends { get; set; }

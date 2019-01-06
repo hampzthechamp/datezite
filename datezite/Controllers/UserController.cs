@@ -34,11 +34,6 @@ namespace datezite.Controllers
         {
             _context.Dispose();
         }
-        // GET: User
-        public ActionResult FirstPage()
-        {
-            return View();
-        }
 
         public ActionResult MyMatches()
         {
