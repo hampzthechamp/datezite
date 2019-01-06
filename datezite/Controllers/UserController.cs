@@ -52,14 +52,7 @@ namespace datezite.Controllers
         {
             return View();
         }
-        public ActionResult OtherProfile()
-        {
-            var ct = new UserDbContext();
-            var viewModel = new UserFriendsModel()
-            {
-                FriendList = ct.Users.ToList()
-            };
-            return View(viewModel);
-        }
+        
+        
     }
 }

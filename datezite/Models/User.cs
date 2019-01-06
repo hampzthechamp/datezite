@@ -8,6 +8,7 @@ namespace datezite.Models
 {
     public class User
     {
+        [Key]
         public int ID { get; set; }
         [Display(Name = "Användarnamn")]
         public String Username { get; set; }
@@ -27,6 +28,8 @@ namespace datezite.Models
         public String Email { get; set; }
         [Display(Name = "Kön")]
         public Gender GenderOfMember { get; set; }
+
+        
 
         public enum Gender {
             Man,

@@ -6,11 +6,12 @@ using System.Web;
 
 namespace datezite.Models
 {
-    public class UserDbContext : DbContext
+    public class DatingDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
 
-        public UserDbContext() : base("userdb") { }
+
+        public DatingDbContext() : base("datingdb") { }
 
     }
 }
