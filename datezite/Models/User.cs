@@ -31,11 +31,11 @@ namespace datezite.Models
 
         
 
-        public enum Gender {
-            Man,
-            Kvinna,
-            Annat
-        }
+            public enum Gender {
+                Man,
+                Kvinna,
+                Annat
+            }
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -9,6 +10,23 @@ namespace datezite.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public enum Gender
+        {
+            Man,
+            Kvinna,
+            Annat
+        }
+        public string Användarnamn { get; set; }
+        public Gender Kön { get; set; }
+        public string Förnamn { get; set; }
+        public string Efternamn { get; set; }
+        public int Ålder { get; set; }
+        public string Lösenord { get; set; }
+        public string Sysselsättning { get; set; }
+        public string Intressen { get; set; }
+        public ICollection<ApplicationUser> Vänner { get; set; }
+        public ICollection<WallEntry> Inlägg { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
