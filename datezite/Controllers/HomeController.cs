@@ -26,5 +26,9 @@ namespace datezite.Controllers
 
             return View();
         }
+        public ActionResult RegisterViewPartial()
+        {
+            return View();
+        }
     }
 }

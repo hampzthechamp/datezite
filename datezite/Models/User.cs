@@ -27,7 +27,7 @@ namespace datezite.Models
         [Display(Name = "Kön")]
         public Gender GenderOfMember { get; set; }
         public ICollection<User> Friends { get; set; }
-        public ICollection<User> FriendReq { get; set; }
+        
 
         
 

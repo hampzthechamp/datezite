@@ -12,7 +12,6 @@ namespace datezite.Models
         
 
         
-        public List<WallEntry> Entrys { get; set; }
         
     }
 }

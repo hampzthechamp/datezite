@@ -24,8 +24,9 @@ namespace datezite.Models
         public string Lösenord { get; set; }
         public string Sysselsättning { get; set; }
         public string Intressen { get; set; }
+        public bool IsFriend = false;
         public ICollection<ApplicationUser> Vänner { get; set; }
-        public ICollection<WallEntry> Inlägg { get; set; }
+        public ICollection<Entry> Inlägg { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using datezite.Models;
 
 namespace datezite.Controllers
 {
-    public class WallEntryController : Controller
+    public class EntryController : Controller
     {
-        // GET: WallEntry
+        // GET: Entry
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }
