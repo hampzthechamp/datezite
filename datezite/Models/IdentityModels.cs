@@ -16,8 +16,9 @@ namespace datezite.Models
             Kvinna,
             Annat
         }
+        
         public string Användarnamn { get; set; }
-        public Gender Kön { get; set; }
+        public string Kön { get; set; }
         public string Förnamn { get; set; }
         public string Efternamn { get; set; }
         public int Ålder { get; set; }
