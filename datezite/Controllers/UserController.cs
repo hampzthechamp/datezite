@@ -19,17 +19,31 @@ namespace datezite.Controllers
             _context = new ApplicationDbContext();
         }
 
-        //public ActionResult Create(User user) {
-        //    _context.Users.Add(user);
-        //    _context.SaveChanges();
-        //    return RedirectToAction("YourProfile", "User");
-        //}
+        public ActionResult Update(ApplicationUser LoggedInUser) {
 
-        public ActionResult EditYourProfile() {
-            return View();
+            var userToChange = fetchUser.GetUserByName(User.Identity.Name);
+            LoggedInUser.UserName = userToChange.UserName;
+
+            var user = _context.Users.SingleOrDefault(u => u.UserName == userToChange.UserName);
+
+            user.Förnamn = LoggedInUser.Förnamn;
+            user.Efternamn = LoggedInUser.Efternamn;
+            user.Sysselsättning = LoggedInUser.Sysselsättning;
+            user.Kön = LoggedInUser.Kön;
+            user.Ålder = LoggedInUser.Ålder;
+            user.Intressen = LoggedInUser.Intressen;
+
+
+            _context.SaveChanges();
+            return RedirectToAction("YourProfile");
         }
-        public ActionResult Update(User user) {
-            return View();
+
+        public ActionResult EditYourProfile(ApplicationUser model) {
+
+
+            model = fetchUser.GetUserByName(User.Identity.Name);
+
+            return View(model);
         }
 
         protected override void Dispose(bool disposing)

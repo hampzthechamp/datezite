@@ -1,4 +1,4 @@
-﻿@model datezite.Models.User
+﻿@model datezite.Models.ApplicationUser
 @using datezite.Models
 @{
     ViewBag.Title = "EditYourProfile";
@@ -7,77 +7,53 @@
 
 <h2></h2>
 <div class="container-fluid">
-    <div class="row">
-        <div class=" col-lg-4 bg-dark">
 
-        </div>
 
-        <div class="col-lg-4 bg-warning">
+    <div class="row" style="padding-left: 300px;">
+
+        @using (Html.BeginForm("Update", "User"))
+        {
             <div class="row">
-                <div class="col-lg-6 bg-warning">
-                    @using (Html.BeginForm("Update", "User"))
-                    {
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Firstname)
-                            @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control" })
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-sm">Spara</button>}
-
-                    @using (Html.BeginForm("Update", "User"))
-                    {
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Work)
-                            @Html.TextBoxFor(m => m.Work, new { @class = "form-control" })
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-sm">Spara</button>
-                    }
-                                        
-                    @using (Html.BeginForm("Update", "User"))
-                    {
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.GenderOfMember)
-                            @Html.DropDownListFor(m => m.GenderOfMember, new SelectList(Enum.GetValues(typeof(User.Gender))), " ", new { @class = "form-control" })
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-sm">Spara</button>
-                    }
+                <div class="col">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Förnamn)
+                        @Html.TextBoxFor(m => m.Förnamn, new { @class = "form-control" })
                     </div>
 
-                    <div class="col-lg-6">
-                        @using (Html.BeginForm("Update", "User"))
-                        {
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.Lastname)
-                                @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control" })
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Spara</button>}
-
-                        @using (Html.BeginForm("Update", "User"))
-                        {
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.Hobbies)
-                                @Html.TextBoxFor(m => m.Hobbies, new { @class = "form-control" })
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Spara</button>
-                        }
-
-                        @using (Html.BeginForm("Update", "User"))
-                        {
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.Age)
-                                @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Spara</button>
-
-                        }
-
-
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Sysselsättning)
+                        @Html.TextBoxFor(m => m.Sysselsättning, new { @class = "form-control" })
                     </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Kön)
+                        @Html.DropDownListFor(m => m.Kön, new SelectList(Enum.GetValues(typeof(User.Gender))), " ", new { @class = "form-control" })
+                    </div>
+
                 </div>
-        </div>
-        <div class="col-lg-4 bg-dark">
 
+                <div class="col">
 
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Efternamn)
+                        @Html.TextBoxFor(m => m.Efternamn, new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Intressen)
+                        @Html.TextBoxFor(m => m.Intressen, new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Ålder)
+                        @Html.TextBoxFor(m => m.Ålder, new { @class = "form-control" })
+                    </div>
+
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-primary">Spara</button>
+        }
+
     </div>
 </div>
 
