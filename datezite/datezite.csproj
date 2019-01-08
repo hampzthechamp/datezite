@@ -186,6 +186,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901021437456_InitialModel.cs" />
+    <Compile Include="Migrations\201901021437456_InitialModel.Designer.cs">
+      <DependentUpon>201901021437456_InitialModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201901021550576_Email.cs" />
     <Compile Include="Migrations\201901021550576_Email.Designer.cs">
       <DependentUpon>201901021550576_Email.cs</DependentUpon>
@@ -221,6 +225,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\DatingDbContext.cs" />
     <Compile Include="Models\UserViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -339,6 +344,9 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901021437456_InitialModel.resx">
+      <DependentUpon>201901021437456_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901021550576_Email.resx">
       <DependentUpon>201901021550576_Email.cs</DependentUpon>
     </EmbeddedResource>
