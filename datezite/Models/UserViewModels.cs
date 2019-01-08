@@ -14,4 +14,11 @@ namespace datezite.Models
         
         
     }
+
+    public class LoggedInViewModel
+    {
+        public List<Entry> WallEntries { get; set; }
+        public List<ApplicationUser> Friends { get; set; }
+        
+    }
 }

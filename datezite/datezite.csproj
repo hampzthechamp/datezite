@@ -181,6 +181,7 @@
     <Compile Include="Controllers\HeaderSignedInController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -209,9 +210,14 @@
     <Compile Include="Migrations\201901071340005_mig.Designer.cs">
       <DependentUpon>201901071340005_mig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901081228273_ok.cs" />
+    <Compile Include="Migrations\201901081228273_ok.Designer.cs">
+      <DependentUpon>201901081228273_ok.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Entry.cs" />
+    <Compile Include="Models\GetUser.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -320,6 +326,7 @@
     <Folder Include="Views\Entry\" />
     <Folder Include="Views\HeaderAnonymous\" />
     <Folder Include="Views\HeaderSignedIn\" />
+    <Folder Include="Views\Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -350,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901071340005_mig.resx">
       <DependentUpon>201901071340005_mig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081228273_ok.resx">
+      <DependentUpon>201901081228273_ok.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
