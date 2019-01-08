@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201901081228273_ok.Designer.cs">
       <DependentUpon>201901081228273_ok.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901081321171_apn.cs" />
+    <Compile Include="Migrations\201901081321171_apn.Designer.cs">
+      <DependentUpon>201901081321171_apn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Entry.cs" />
@@ -360,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901081228273_ok.resx">
       <DependentUpon>201901081228273_ok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081321171_apn.resx">
+      <DependentUpon>201901081321171_apn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
