@@ -324,10 +324,10 @@
     <Content Include="Views\User\OtherProfile.cshtml" />
     <Content Include="Views\User\PotentialMatches.cshtml" />
     <Content Include="Views\User\MyMatches.cshtml" />
+    <Content Include="Views\Entry\EntryViewPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Entry\" />
     <Folder Include="Views\HeaderAnonymous\" />
     <Folder Include="Views\HeaderSignedIn\" />
     <Folder Include="Views\Profiles\" />
