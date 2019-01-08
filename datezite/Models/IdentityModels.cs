@@ -42,6 +42,7 @@ namespace datezite.Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Entry> Entries { get; set; }
+        public DbSet<ApplicationUser> AspUser { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

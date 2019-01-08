@@ -180,6 +180,7 @@
     <Compile Include="Controllers\HeaderAnonymousController.cs" />
     <Compile Include="Controllers\HeaderSignedInController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IdentityModelController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -208,6 +209,10 @@
     <Compile Include="Migrations\201901071340005_mig.cs" />
     <Compile Include="Migrations\201901071340005_mig.Designer.cs">
       <DependentUpon>201901071340005_mig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081032148_MovedUserFromUserToIdentity.cs" />
+    <Compile Include="Migrations\201901081032148_MovedUserFromUserToIdentity.Designer.cs">
+      <DependentUpon>201901081032148_MovedUserFromUserToIdentity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -320,6 +325,7 @@
     <Folder Include="Views\Entry\" />
     <Folder Include="Views\HeaderAnonymous\" />
     <Folder Include="Views\HeaderSignedIn\" />
+    <Folder Include="Views\IdentityModel\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -350,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901071340005_mig.resx">
       <DependentUpon>201901071340005_mig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081032148_MovedUserFromUserToIdentity.resx">
+      <DependentUpon>201901081032148_MovedUserFromUserToIdentity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
