@@ -62,6 +62,8 @@ namespace datezite.Controllers
             model.Efternamn = user.Efternamn;
             model.Ålder = user.Ålder;
             model.Kön = user.Kön;
+            model.Intressen = user.Intressen;
+            model.Sysselsättning = user.Sysselsättning;
             return View(model);
             
         }
