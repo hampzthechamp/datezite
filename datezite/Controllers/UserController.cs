@@ -21,10 +21,11 @@ namespace datezite.Controllers
 
         public ActionResult Update(ApplicationUser LoggedInUser) {
 
-            var userToChange = fetchUser.GetUserByName(User.Identity.Name);
-            LoggedInUser.UserName = userToChange.UserName;
+            var UserToChange = fetchUser.GetUserByName(User.Identity.Name);
 
-            var user = _context.Users.SingleOrDefault(u => u.UserName == userToChange.UserName);
+            LoggedInUser.UserName = UserToChange.UserName;
+
+            var user = _context.Users.SingleOrDefault(u => u.UserName == UserToChange.UserName);
 
             user.Förnamn = LoggedInUser.Förnamn;
             user.Efternamn = LoggedInUser.Efternamn;
@@ -72,10 +73,30 @@ namespace datezite.Controllers
             return View();
         }
 
-        public ActionResult OtherProfile()
+        public ActionResult OtherProfile(ApplicationUser model)
         {
-            
-            return View();
+            var otherUser = _context.Users.Single();
+
+            model.UserName = otherUser.UserName;
+
+            var user = _context.Users.Single(u => u.UserName == model.UserName);
+
+            model.Förnamn = user.Förnamn;
+            model.Efternamn = user.Efternamn;
+            model.Ålder = user.Ålder;
+            model.Kön = user.Kön;
+            model.Intressen = user.Intressen;
+            model.Sysselsättning = user.Sysselsättning;
+
+            return View(model);
+        }
+
+        
+        public ActionResult GetUserByUsername(int Ålder)
+        {
+            var user = _context.Users.SingleOrDefault(u => u.Ålder == Ålder);
+
+            return RedirectToAction("OtherProfile");
         }
     }
 }   
