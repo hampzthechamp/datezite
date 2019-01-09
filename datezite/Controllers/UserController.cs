@@ -73,9 +73,9 @@ namespace datezite.Controllers
             return View();
         }
 
-        public ActionResult OtherProfile(ApplicationUser model)
+        public ActionResult OtherProfile(ApplicationUser model, String Id)
         {
-            var otherUser = _context.Users.Single();
+            var otherUser = GetOtherUser(Id);
 
             model.UserName = otherUser.UserName;
 
@@ -87,17 +87,27 @@ namespace datezite.Controllers
             model.Kön = user.Kön;
             model.Intressen = user.Intressen;
             model.Sysselsättning = user.Sysselsättning;
+            model.UserName = user.UserName;
 
             return View(model);
         }
 
         
-        public ActionResult GetUserByUsername(int Ålder)
+        public ActionResult GetUserByUsername(String Förnamn)
         {
-            var user = _context.Users.SingleOrDefault(u => u.Ålder == Ålder);
+            
 
-            return RedirectToAction("OtherProfile");
+            return Content(Förnamn);
         }
+
+        public ApplicationUser GetOtherUser(String Id)
+        {
+            var appUser = _context.Users.Single(x => x.Id == Id);
+
+            return appUser;
+        }
+
+
     }
 }   
         
