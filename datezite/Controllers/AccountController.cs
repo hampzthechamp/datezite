@@ -151,7 +151,7 @@ namespace datezite.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email , Email = model.Email, Kön = model.Kön.ToString(), Förnamn = model.Förnamn, Efternamn = model.Efternamn, Ålder = model.Ålder, Sysselsättning = model.Sysselsättning, Intressen = model.Intressen  };
+                var user = new ApplicationUser { UserName = model.Email , Email = model.Email, Kön = model.Kön.ToString(), Förnamn = model.Förnamn, Efternamn = model.Efternamn, Ålder = model.Ålder, Sysselsättning = model.Sysselsättning };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

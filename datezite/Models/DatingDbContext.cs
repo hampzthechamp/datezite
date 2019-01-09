@@ -29,6 +29,20 @@ namespace datezite.Models
 
         public DbSet<Entry> Entries { get; set; }
 
-       
     }
+    public class InterestDBContext : DbContext
+    {
+        public InterestDBContext() : base("aspnet-datezite-20181230065108")
+        {
+        }
+
+        public DbSet<Interests> Intressen { get; set; }
+        public DbSet<IdentityUser> Användare { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+    }
+
 }
