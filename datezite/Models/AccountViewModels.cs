@@ -103,9 +103,6 @@ namespace datezite.Models
         [Display(Name = "Sysselsättning")]
         public string Sysselsättning {get;set;}
 
-        [Required]
-        [Display(Name = "Intressen")]
-        public string Intressen {get;set;}
 
         public enum Gender
         {
