@@ -92,22 +92,12 @@ namespace datezite.Controllers
             return View(model);
         }
 
-        
-        public ActionResult GetUserByUsername(String Förnamn)
-        {
-            
-
-            return Content(Förnamn);
-        }
-
         public ApplicationUser GetOtherUser(String Id)
         {
             var appUser = _context.Users.Single(x => x.Id == Id);
 
             return appUser;
         }
-
-
     }
 }   
         
