@@ -1,46 +1,46 @@
-﻿@using Microsoft.AspNet.Identity
-@model datezite.Models.ApplicationUser
-
-@{
-    ViewBag.Title = "YourProfile";
+﻿@{
+    ViewBag.Title = "OtherProfile";
     Layout = "~/Views/Shared/_SignedInLayout.cshtml";
+
 }
-
-
+@using Microsoft.AspNet.Identity;
+@using datezite.Models
+@model datezite.Models.ApplicationUser
 
 <div class="row" style="padding-top: 30px">
     <div class="col">
         <h3>Vänner</h3>
-        <div class="list-group">
+
+        <table>
+            @*@foreach (var user in Model.Friends)
+                {*@
+            <tr>
+                @*@user.Firstname @user.Lastname;*@
+            </tr>
 
 
-            @*@foreach (var user in Model.Vänner)
-                {
-                    <a href="#" class="list-group-item list-group-item-action">
-                        @Html.ActionLink(user.Förnamn+" "+user.Efternamn,"OtherProfile")
-                    </a>
-                }*@
-        </div>
-        <div class="" id="senasteBes">
 
-        </div>
+            @*}*@
+        </table>
 
     </div>
-    
     <div class="col-6">
 
         <div class="card mb-3">
-            <h3 class="card-header">@Html.DisplayFor(m => m.Förnamn) @Html.DisplayFor(m => m.Efternamn) </h3>
+            <h3 class="card-header">@Html.DisplayFor(m => m.Förnamn) @Html.DisplayFor(m => m.Efternamn)</h3>
             <div class="card-body">
                 <h5 class="card-title">@Html.DisplayFor(m => m.Kön), @Html.DisplayFor(m => m.Ålder)</h5>
+
             </div>
-
             <img style="padding-left: 20px; height: 300px; width: 300px; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
-
             <div class="card-body">
                 <p>@Html.DisplayFor(m => m.Sysselsättning)</p>
                 <p>@Html.DisplayFor(m => m.Intressen)</p>
-                <a href="User/" class="card-link" style="float:right">@Html.ActionLink("Redigera Profil", "EditYourProfile")</a>
+            </div>
+
+            <div class="card-body">
+                <a href="#" class="card-link">Passar vi ihop?</a>
+                <a href="#" class="card-link" style="float:right">Skicka vänförfrågan</a>
             </div>
             <div class="card-footer text-muted">
                 Senast inloggad: 2 days ago
@@ -56,39 +56,37 @@
     <div class="col">
         <div class="form-group">
             <h3>Vägg</h3>
-            <textarea class="form-control" id="entryCont" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 103px;" placeholder="Din text här.." ></textarea>
+            <textarea class="form-control" id="entryCont" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 103px;" placeholder="Din text här.."></textarea>
         </div>
 
         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 20px" id="send">Publicera</button>
         <div id="inlägg">
-            @*@foreach (var entry in Model.Inlägg)
-                    {
+            @*@foreach (var entry in Model.Entrys)
+                {
                 <div class="card border-light mb-3" style="max-width: 20rem; ">
-                    <div class="card-header">@entry.Author.Förnamn @entry.Author.Efternamn</div>
+                    <div class="card-header"><a href="" class="card-link">@entry.Author.Firstname @entry.Author.Lastname</a></div>
                     <div class="card-body">
 
                         <p class="card-text">@entry.Content</p>
                     </div>
                 </div>
-
                 }*@
         </div>
     </div>
 
 
 </div>
-<script src="~/Scripts/jquery-3.3.1.js"></script>
 <script>
     $('#send').on('click', function () {
 
-        var repId = "@Model.Id";
-        var authId = "@HttpContext.Current.User.Identity.GetUserId()";
+        var repId = @Model.Id
+        var authId = @HttpContext.Current.User.Identity.GetUserId();
         var cont = $('#entryCont').val();
         var objEntry = {
             Content: cont,
             AuthorId: authId,
             RecipientId: repId
-        };
+        }
         var entry = JSON.stringify(objEntry);
 
         $.ajax({
@@ -96,14 +94,14 @@
             data: entry,
             dataType: 'JSON',
             contentType: 'application/json; charset=utf-8',
-            url: 'http://localhost:59661/EntryApi/CreateNew',
+            url: '@Url.Action("Post", "EntryApi", new { httproute = "" })',
             success: function (data) {
-                $('#entryCont').val('');
+                $('entryCont').val('');
 
             }
         });
 
 
     });
-
+    
 </script>

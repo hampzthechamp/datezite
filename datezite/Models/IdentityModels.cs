@@ -65,6 +65,6 @@ namespace datezite.Models
             base.OnModelCreating(modelBuilder);
         }
 
-        
+
     }
 }

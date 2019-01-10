@@ -79,7 +79,7 @@ namespace datezite.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToAction("YourProfile", "User");
+                    return RedirectToAction("YourProfile", "Profiles");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

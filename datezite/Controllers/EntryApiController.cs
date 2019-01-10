@@ -7,6 +7,7 @@ using System.Web.Http;
 using datezite.Models;
 namespace datezite.Controllers
 {
+    
     public class EntryApiController : ApiController
     {
         public void newEntry(string _authourId, string _recipientId, string _content)
@@ -18,7 +19,7 @@ namespace datezite.Controllers
             }
         }
         [HttpPost]
-        public void CreateNew([FromBody]Entry _entry)
+        public void Post([FromBody]Entry _entry)
         {
             //try
             
