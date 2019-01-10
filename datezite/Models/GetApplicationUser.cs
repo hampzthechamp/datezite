@@ -21,8 +21,6 @@ namespace datezite.Models
         public ApplicationUser GetUserByName(string name)
         {
             var appUser = _context.Users.Single(u => u.UserName == name);
-
-
             return appUser;
         }
     }
