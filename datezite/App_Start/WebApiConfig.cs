@@ -18,8 +18,8 @@ namespace datezite
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "{controller}/{action}/{id}",
-                defaults: new { controller = "EntryApi", action = "Post", id = UrlParameter.Optional }
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { id = UrlParameter.Optional }
             );
         }
     }

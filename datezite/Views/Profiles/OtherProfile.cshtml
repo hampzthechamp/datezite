@@ -94,7 +94,7 @@
             data: entry,
             dataType: 'JSON',
             contentType: 'application/json; charset=utf-8',
-            url: 'http://localhost:59661/EntryApiController/Post',
+            url: '@Url.Action("Post", "EntryApi", new { httproute = "" })',
             success: function (data) {
                 $('entryCont').val('');
 
