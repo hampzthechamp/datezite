@@ -18,14 +18,14 @@ namespace datezite.Models
             return new DatingDbContext();
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ApplicationUser>().HasMany(x => x.Vänner).WithMany()
-                .Map(x => x.ToTable("Friends"));
-            modelBuilder.Entity<ApplicationUser>().HasMany(x => x.Inlägg).WithRequired(x => x.Author);
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<ApplicationUser>().HasMany(x => x.Vänner).WithMany()
+        //        .Map(x => x.ToTable("Friends"));
+        //    modelBuilder.Entity<ApplicationUser>().HasMany(x => x.Inlägg).WithRequired(x => x.Author);
 
-            base.OnModelCreating(modelBuilder);
-        }
+        //    base.OnModelCreating(modelBuilder);
+        //}
 
         public DbSet<Entry> Entries { get; set; }
 

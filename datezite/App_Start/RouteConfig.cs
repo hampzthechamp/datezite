@@ -15,8 +15,8 @@ namespace datezite
 
             routes.MapRoute(
                 "GetUserByUserName",
-                "User/OtherProfile/{Ålder}",
-                new { Controller = "User", Action = "GetUserByUsername" }
+                "User/OtherProfile/{Id}",
+                new { Controller = "User", Action = "OtherProfile" }
                 );
 
             routes.MapRoute(

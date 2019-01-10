@@ -56,10 +56,10 @@
     <div class="col">
         <div class="form-group">
             <h3>Vägg</h3>
-            <textarea class="form-control" id="exampleTextarea" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 103px;" placeholder="Din text här.."></textarea>
+            <textarea class="form-control" id="entryCont" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 103px;" placeholder="Din text här.." ></textarea>
         </div>
 
-        <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 20px">Publicera</button>
+        <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 20px" id="send">Publicera</button>
         <div id="inlägg">
             @*@foreach (var entry in Model.Inlägg)
                     {
@@ -77,3 +77,33 @@
 
 
 </div>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    $('#send').on('click', function () {
+
+        var repId = "@Model.Id";
+        var authId = "@HttpContext.Current.User.Identity.GetUserId()";
+        var cont = $('#entryCont').val();
+        var objEntry = {
+            Content: cont,
+            AuthorId: authId,
+            RecipientId: repId
+        };
+        var entry = JSON.stringify(objEntry);
+
+        $.ajax({
+            type: 'post',
+            data: entry,
+            dataType: 'JSON',
+            contentType: 'application/json; charset=utf-8',
+            url: 'http://localhost:59661/EntryApi/CreateNew',
+            success: function (data) {
+                $('#entryCont').val('');
+
+            }
+        });
+
+
+    });
+
+</script>
