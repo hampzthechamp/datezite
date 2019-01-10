@@ -44,6 +44,7 @@ namespace datezite.Controllers
 
 
             username = fetchUser.GetUserByName(User.Identity.Name);
+            
             var intressen = _context.Intressen.ToList();
             
             var viewModel = new EditYourProfileViewModel
@@ -51,6 +52,13 @@ namespace datezite.Controllers
                 ApplicationUser = username,
                 Interests = intressen
             };
+
+            viewModel.Efternamn = username.Efternamn;
+            viewModel.Förnamn = username.Förnamn;
+            viewModel.Kön = username.Kön;
+            viewModel.Sysselsättning = username.Sysselsättning;
+            viewModel.Ålder = username.Ålder;
+
             return View(viewModel);
            
         }
@@ -64,6 +72,7 @@ namespace datezite.Controllers
         {
             return View();
         }
+
         public ActionResult YourProfile(ApplicationUser model)
         {
             var user = fetchUser.GetUserByName(User.Identity.Name);
