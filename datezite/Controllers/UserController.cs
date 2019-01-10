@@ -10,10 +10,11 @@ using Microsoft.AspNet.Identity;
 namespace datezite.Controllers
 {
     public class UserController : Controller
-    {
+    {   
         GetApplicationUser fetchUser = new GetApplicationUser();
-
         private ApplicationDbContext _context;
+      //  private InterestDBContext db = new InterestDBContext();
+
         public UserController()
         {
             _context = new ApplicationDbContext();
@@ -32,19 +33,26 @@ namespace datezite.Controllers
             user.Sysselsättning = LoggedInUser.Sysselsättning;
             user.Kön = LoggedInUser.Kön;
             user.Ålder = LoggedInUser.Ålder;
-            user.Intressen = LoggedInUser.Intressen;
+       //     user.Intressen = LoggedInUser.Intressen;
 
 
             _context.SaveChanges();
             return RedirectToAction("YourProfile");
         }
 
-        public ActionResult EditYourProfile(ApplicationUser model) {
+        public ActionResult EditYourProfile(ApplicationUser username) {
 
 
-            model = fetchUser.GetUserByName(User.Identity.Name);
-
-            return View(model);
+            username = fetchUser.GetUserByName(User.Identity.Name);
+            var intressen = _context.Intressen.ToList();
+            
+        var viewModel = new EditYourProfileViewModel
+            {
+                ApplicationUser = username,
+                Interests = intressen
+            };
+            return View(viewModel);
+           
         }
 
         protected override void Dispose(bool disposing)
@@ -65,8 +73,7 @@ namespace datezite.Controllers
             model.Kön = user.Kön;
             model.Intressen = user.Intressen;
             model.Sysselsättning = user.Sysselsättning;
-            return View(model);
-            
+            return View(model);   
         }
         public ActionResult PotentialMatches()
         {
@@ -98,6 +105,8 @@ namespace datezite.Controllers
 
             return RedirectToAction("OtherProfile");
         }
+
+  
     }
 }   
         

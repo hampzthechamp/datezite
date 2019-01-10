@@ -9,7 +9,7 @@ namespace datezite.Models
 {
     public class DatingDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DatingDbContext(): base("DefaultConnection", throwIfV1Schema: false)
+        public DatingDbContext() : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
@@ -30,19 +30,19 @@ namespace datezite.Models
         public DbSet<Entry> Entries { get; set; }
 
     }
-    public class InterestDBContext : DbContext
-    {
-        public InterestDBContext() : base("aspnet-datezite-20181230065108")
-        {
-        }
+//    public class InterestDBContext : DbContext
+//{
+//    public InterestDBContext() : base("DefaultConnection",)
+//    {
+//    }
 
-        public DbSet<Interests> Intressen { get; set; }
-        public DbSet<IdentityUser> Användare { get; set; }
+//    public DbSet<Interests> Intressen { get; set; }
+//    public DbSet<IdentityUser> Användare { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
-    }
+//    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+//    {
+//        base.OnModelCreating(modelBuilder);
+//    }
+//}
 
 }
