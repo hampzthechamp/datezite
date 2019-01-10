@@ -10,5 +10,13 @@ namespace datezite.ViewModels
     {
         public ApplicationUser ApplicationUser { get; set; }
         public List <Interests> Interests { get; set; }
+        public string Användarnamn { get; set; }
+        public string Kön { get; set; }
+        public string Förnamn { get; set; }
+        public string Efternamn { get; set; }
+        public int Ålder { get; set; }
+        public string Lösenord { get; set; }
+        public string Sysselsättning { get; set; }
+        
     }
 }
