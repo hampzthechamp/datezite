@@ -53,6 +53,11 @@ namespace datezite.Controllers
                 ApplicationUser = username,
                 Interests = intressen
             };
+            viewModel.Ålder = username.Ålder;
+            viewModel.Förnamn = username.Förnamn;
+            viewModel.Efternamn = username.Efternamn;
+            viewModel.Sysselsättning = username.Sysselsättning;
+            viewModel.Kön = username.Kön;
             return View(viewModel);
 
         }
