@@ -241,6 +241,18 @@
     <Compile Include="Migrations\201901091830091_vetejvadDetÄr.Designer.cs">
       <DependentUpon>201901091830091_vetejvadDetÄr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901101741017_tagitBortIntresseFronUsers.cs" />
+    <Compile Include="Migrations\201901101741017_tagitBortIntresseFronUsers.Designer.cs">
+      <DependentUpon>201901101741017_tagitBortIntresseFronUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901101751092_skaTasBort.cs" />
+    <Compile Include="Migrations\201901101751092_skaTasBort.Designer.cs">
+      <DependentUpon>201901101751092_skaTasBort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901101803089_tbxtillvanligt.cs" />
+    <Compile Include="Migrations\201901101803089_tbxtillvanligt.Designer.cs">
+      <DependentUpon>201901101803089_tbxtillvanligt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Entry.cs" />
@@ -400,6 +412,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901091830091_vetejvadDetÄr.resx">
       <DependentUpon>201901091830091_vetejvadDetÄr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901101741017_tagitBortIntresseFronUsers.resx">
+      <DependentUpon>201901101741017_tagitBortIntresseFronUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901101751092_skaTasBort.resx">
+      <DependentUpon>201901101751092_skaTasBort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901101803089_tbxtillvanligt.resx">
+      <DependentUpon>201901101803089_tbxtillvanligt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

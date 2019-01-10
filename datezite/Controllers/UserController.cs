@@ -44,7 +44,7 @@ namespace datezite.Controllers
 
 
             username = fetchUser.GetUserByName(User.Identity.Name);
-            var intressen = _context.Intressen.ToList();
+           var intressen = _context.Intressen.ToList();
             
         var viewModel = new EditYourProfileViewModel
             {
