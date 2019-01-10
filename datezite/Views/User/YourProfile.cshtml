@@ -96,7 +96,7 @@
             data: entry,
             dataType: 'JSON',
             contentType: 'application/json',
-            url: '@Url.Action("Post","EntryApi", new { httproute = "" } )',
+            url: '@Url.Content("~/api/EntryApi")',
             success: function (data) {
                 $('#entryCont').val('');
 
