@@ -16,18 +16,18 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        @Html.LabelFor(Model => Model.ApplicationUser.Förnamn)
-                        @Html.TextBoxFor(Model => Model.ApplicationUser.Förnamn, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.Förnamn)
+                        @Html.TextBoxFor(m => m.Förnamn, new { @class = "form-control" })
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(Model => Model.ApplicationUser.Sysselsättning)
-                        @Html.TextBoxFor(Model => Model.ApplicationUser.Sysselsättning, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.Sysselsättning)
+                        @Html.TextBoxFor(m => m.Sysselsättning, new { @class = "form-control" })
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(Model => Model.ApplicationUser.Kön)
-                        @Html.DropDownListFor(Model => Model.ApplicationUser.Kön, new SelectList(Enum.GetValues(typeof(ApplicationUser.Gender))), " ", new { @class = "form-control" })
+                        @Html.LabelFor(m => m.Kön)
+                        @Html.DropDownListFor(m => m.Kön, new SelectList(Enum.GetValues(typeof(ApplicationUser.Gender))), " ", new { @class = "form-control" })
                     </div>
 
                 </div>
@@ -35,24 +35,23 @@
                 <div class="col">
 
                     <div class="form-group">
-                        @Html.LabelFor(Model => Model.ApplicationUser.Efternamn)
-                        @Html.TextBoxFor(Model => Model.ApplicationUser.Efternamn, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.Efternamn)
+                        @Html.TextBoxFor(m => m.Efternamn, new { @class = "form-control" })
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(Model => Model.ApplicationUser.Ålder)
-                        @Html.TextBoxFor(Model => Model.ApplicationUser.Ålder, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.Ålder)
+                        @Html.TextBoxFor(m => m.Ålder, new { @class = "form-control" })
 
                     </div>
 
                 </div>
             </div>
-
             <button type="submit" class="btn btn-primary btn-primary">Spara</button>
         }
             <div class="form-group">
-                @Html.LabelFor(m => m.ApplicationUser.Intressen)
-                @Html.DropDownListFor(M => M.Interests, new SelectList(Model.Interests, "InterestID", "Name"), " ", new { @class = "form-control" })
+                @Html.LabelFor(m => m.Interests)
+                @Html.DropDownListFor(m => m.Interests, new SelectList(Model.Interests, "InterestID", "Name"), " ", new { @class = "form-control" })
                 @*@Html.DropDownList("Intressen", ViewBag.intresseLista as SelectList, "Please select", new { @class = "form-control" })*@
 
             </div>
