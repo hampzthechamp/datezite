@@ -58,7 +58,7 @@ namespace datezite.Models
 
         public static ApplicationDbContext Create()
         {
-            Database.SetInitializer<ApplicationDbContext>(new MockInitializer());
+            //Database.SetInitializer<ApplicationDbContext>(new MockInitializer());
             return new ApplicationDbContext();
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
