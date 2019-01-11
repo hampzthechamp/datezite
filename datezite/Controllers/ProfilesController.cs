@@ -22,7 +22,7 @@ namespace datezite.Controllers
             _context = new ApplicationDbContext();
         }
 
-        public ActionResult Update(ApplicationUser LoggedInUser)
+        public ActionResult Update([Bind(Exclude = "UserPhoto")]ApplicationUser LoggedInUser)
         {
 
             var UserToChange = fetchUser.GetUserByName(User.Identity.Name);
@@ -31,11 +31,24 @@ namespace datezite.Controllers
 
             var user = _context.Users.SingleOrDefault(u => u.UserName == UserToChange.UserName);
 
+            byte[] imageData = null;
+            if (Request.Files.Count > 0)
+            {
+                HttpPostedFileBase poImgFile = Request.Files["UserPhoto"];
+
+                using (var binary = new BinaryReader(poImgFile.InputStream))
+                {
+                    imageData = binary.ReadBytes(poImgFile.ContentLength);
+                }
+            }
+
             user.Förnamn = LoggedInUser.Förnamn;
             user.Efternamn = LoggedInUser.Efternamn;
             user.Sysselsättning = LoggedInUser.Sysselsättning;
             user.Kön = LoggedInUser.Kön;
             user.Ålder = LoggedInUser.Ålder;
+            user.UserPhoto = imageData;
+            
             //     user.Intressen = LoggedInUser.Intressen;
 
 
@@ -108,6 +121,7 @@ namespace datezite.Controllers
             model.Intressen = user.Intressen;
             model.Sysselsättning = user.Sysselsättning;
             model.UserName = user.UserName;
+            
 
             return View(model);
         }
@@ -121,13 +135,12 @@ namespace datezite.Controllers
 
         public FileContentResult UserPhotos()
         {
-            if (User.Identity.IsAuthenticated)
-            {
+            
                 String userId = User.Identity.GetUserId();
-                if (userId == null)
+                var LoggedInUser = fetchUser.GetUserByName(User.Identity.Name);
+                if (LoggedInUser.UserPhoto == null)
                 {
-                    string fileName = HttpContext.Server.MapPath(@"~/Images/noImg.png");
-
+                    string fileName = HttpContext.Server.MapPath(@"~/Images/noImg.jpg");
                     byte[] imageData = null;
                     FileInfo fileInfo = new FileInfo(fileName);
                     long imageFileLength = fileInfo.Length;
@@ -136,25 +149,41 @@ namespace datezite.Controllers
                     imageData = br.ReadBytes((int)imageFileLength);
 
                     return File(imageData, "image/png");
-
                 }
+
                 var bdUsers = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
                 var userImage = bdUsers.Users.Where(u => u.Id == userId).FirstOrDefault();
 
                 return new FileContentResult(userImage.UserPhoto, "image/jpeg");
-            }
-            else
-            {
-                string fileName = HttpContext.Server.MapPath(@"~/Images/noImg.png");
+                
+            
+        }
 
-                byte[] imageData = null;
-                FileInfo fileInfo = new FileInfo(fileName);
-                long imageFileLengt = fileInfo.Length;
-                FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(fs);
-                imageData = br.ReadBytes((int)imageFileLengt);
-                return File(imageData, "image/png");
-            }
+        public FileContentResult OtherUsersPhoto(String Id)
+        {
+                
+                String userId = Id;
+                var OtherUser = GetOtherUser(userId);
+                if (OtherUser.UserPhoto == null)
+                {
+                    string fileName = HttpContext.Server.MapPath(@"~/Images/noImg.jpg");
+                    byte[] imageData = null;
+                    FileInfo fileInfo = new FileInfo(fileName);
+                    long imageFileLength = fileInfo.Length;
+                    FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    imageData = br.ReadBytes((int)imageFileLength);
+
+                    return File(imageData, "image/png");
+                }
+                
+                var bdUsers = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
+                var userImage = bdUsers.Users.Where(u => u.Id == userId).FirstOrDefault();
+
+                return new FileContentResult(userImage.UserPhoto, "image/jpeg");
+
+            
+            
         }
     }
 }
