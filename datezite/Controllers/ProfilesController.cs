@@ -73,15 +73,19 @@ namespace datezite.Controllers
         {
             return View();
         }
-        public ActionResult YourProfile(ApplicationUser model)
+        public ActionResult YourProfile(ProfileViewModel1 model)
         {
             var user = fetchUser.GetUserByName(User.Identity.Name);
-            model.Förnamn = user.Förnamn;
-            model.Efternamn = user.Efternamn;
-            model.Ålder = user.Ålder;
-            model.Kön = user.Kön;
-            model.Intressen = user.Intressen;
-            model.Sysselsättning = user.Sysselsättning;
+
+
+            model.CurrentUser.Förnamn = user.Förnamn;
+            model.CurrentUser.Efternamn = user.Efternamn;
+            model.CurrentUser.Ålder = user.Ålder;
+            model.CurrentUser.Kön = user.Kön;
+            model.CurrentUser.Intressen = user.Intressen;
+            model.CurrentUser.Sysselsättning = user.Sysselsättning;
+            model.CurrentUser.Inlägg = user.Inlägg;
+
             return View(model);
         }
         public ActionResult PotentialMatches()
