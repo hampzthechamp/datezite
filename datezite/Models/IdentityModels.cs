@@ -50,7 +50,6 @@ namespace datezite.Models
         
         public DbSet<Entry> Entries { get; set; }
         public DbSet<Interests> Intressen { get; set; }
-
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -58,10 +57,20 @@ namespace datezite.Models
 
         public static ApplicationDbContext Create()
         {
+            Database.SetInitializer<ApplicationDbContext>(new MockInitializer());
             return new ApplicationDbContext();
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ApplicationUser>()
+             .HasMany(användare => användare.Intressen)
+             .WithMany(intresse => intresse.Användare)
+                 .Map(mc =>
+       {
+           mc.ToTable("användares_Intressen");
+           mc.MapLeftKey("id");
+           mc.MapRightKey("InterestID");
+       });
             base.OnModelCreating(modelBuilder);
         }
 

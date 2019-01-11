@@ -1,5 +1,7 @@
-﻿using System;
+﻿using datezite.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -8,7 +10,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace datezite
-{
+{ 
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
@@ -18,7 +20,11 @@ namespace datezite
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+         //   Database.SetInitializer(new MockInitializer());
+          //  Database.SetInitializer<ApplicationDbContext>(new MockInitializer());
             
+
+
         }
     }
 }
