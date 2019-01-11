@@ -244,17 +244,9 @@
     <Compile Include="Migrations\201901101846507_mig1.Designer.cs">
       <DependentUpon>201901101846507_mig1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901111114564_test.cs" />
-    <Compile Include="Migrations\201901111114564_test.Designer.cs">
-      <DependentUpon>201901111114564_test.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201901111201213_test1.cs" />
     <Compile Include="Migrations\201901111201213_test1.Designer.cs">
       <DependentUpon>201901111201213_test1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901111243276_UserPic.cs" />
-    <Compile Include="Migrations\201901111243276_UserPic.Designer.cs">
-      <DependentUpon>201901111243276_UserPic.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201901111253010_PopulateIntrestsDatabase.cs" />
     <Compile Include="Migrations\201901111253010_PopulateIntrestsDatabase.Designer.cs">
@@ -422,14 +414,8 @@
     <EmbeddedResource Include="Migrations\201901101846507_mig1.resx">
       <DependentUpon>201901101846507_mig1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901111114564_test.resx">
-      <DependentUpon>201901111114564_test.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901111201213_test1.resx">
       <DependentUpon>201901111201213_test1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901111243276_UserPic.resx">
-      <DependentUpon>201901111243276_UserPic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901111253010_PopulateIntrestsDatabase.resx">
       <DependentUpon>201901111253010_PopulateIntrestsDatabase.cs</DependentUpon>
