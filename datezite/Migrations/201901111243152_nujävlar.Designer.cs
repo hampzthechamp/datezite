@@ -7,13 +7,13 @@ namespace datezite.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UserPicture : IMigrationMetadata
+    public sealed partial class nujävlar : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UserPicture));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(nujävlar));
         
         string IMigrationMetadata.Id
         {
-            get { return "201901111157480_UserPicture"; }
+            get { return "201901111243152_nujävlar"; }
         }
         
         string IMigrationMetadata.Source
