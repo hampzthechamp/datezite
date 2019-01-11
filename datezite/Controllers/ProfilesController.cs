@@ -22,13 +22,29 @@ namespace datezite.Controllers
             _context = new ApplicationDbContext();
         }
 
-        public ActionResult Update([Bind(Exclude = "UserPhoto")]ApplicationUser LoggedInUser)
+        public ActionResult Update(ApplicationUser LoggedInUser)
         {
 
             var UserToChange = fetchUser.GetUserByName(User.Identity.Name);
 
             LoggedInUser.UserName = UserToChange.UserName;
 
+            var user = _context.Users.SingleOrDefault(u => u.UserName == UserToChange.UserName);
+
+            user.Förnamn = LoggedInUser.Förnamn;
+            user.Efternamn = LoggedInUser.Efternamn;
+            user.Sysselsättning = LoggedInUser.Sysselsättning;
+            user.Kön = LoggedInUser.Kön;
+            user.Ålder = LoggedInUser.Ålder;
+       
+            _context.SaveChanges();
+            return RedirectToAction("YourProfile");
+        }
+
+        public ActionResult ChangeProfilePicture([Bind(Exclude = "UserPhoto")]ApplicationUser LoggedInUser) {
+
+            var UserToChange = fetchUser.GetUserByName(User.Identity.Name);
+            LoggedInUser.UserName = UserToChange.UserName;
             var user = _context.Users.SingleOrDefault(u => u.UserName == UserToChange.UserName);
 
             byte[] imageData = null;
@@ -42,15 +58,7 @@ namespace datezite.Controllers
                 }
             }
 
-            user.Förnamn = LoggedInUser.Förnamn;
-            user.Efternamn = LoggedInUser.Efternamn;
-            user.Sysselsättning = LoggedInUser.Sysselsättning;
-            user.Kön = LoggedInUser.Kön;
-            user.Ålder = LoggedInUser.Ålder;
             user.UserPhoto = imageData;
-            
-            //     user.Intressen = LoggedInUser.Intressen;
-
 
             _context.SaveChanges();
             return RedirectToAction("YourProfile");
@@ -95,6 +103,7 @@ namespace datezite.Controllers
             model.Kön = user.Kön;
             model.Intressen = user.Intressen;
             model.Sysselsättning = user.Sysselsättning;
+            model.UserPhoto = user.UserPhoto;
             return View(model);
         }
         public ActionResult PotentialMatches()
