@@ -256,6 +256,10 @@
     <Compile Include="Migrations\201901111311344_PopulateIteres2.Designer.cs">
       <DependentUpon>201901111311344_PopulateIteres2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901111629126_bild.cs" />
+    <Compile Include="Migrations\201901111629126_bild.Designer.cs">
+      <DependentUpon>201901111629126_bild.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Entry.cs" />
@@ -266,6 +270,7 @@
     <Compile Include="Models\DatingDbContext.cs" />
     <Compile Include="Models\MockInitializer.cs" />
     <Compile Include="Models\Profiles.cs" />
+    <Compile Include="Models\SearchResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\EditYourProfileViewModel.cs" />
@@ -364,6 +369,7 @@
     <Content Include="Views\Profiles\PotentialMatches.cshtml" />
     <Content Include="Views\Profiles\MyMatches.cshtml" />
     <Content Include="Views\Entry\EntryViewPartial.cshtml" />
+    <Content Include="Views\Profiles\SearchView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -428,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901111311344_PopulateIteres2.resx">
       <DependentUpon>201901111311344_PopulateIteres2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901111629126_bild.resx">
+      <DependentUpon>201901111629126_bild.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

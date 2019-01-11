@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace datezite.Models
         public ICollection<ApplicationUser> Vänner { get; set; }
         public ICollection<Entry> Inlägg { get; set; }
         public virtual ICollection<Interests> Intressen { get; set; }
+        [Display(Name = "Profilbild")]
         public byte[] UserPhoto { get; set; }
 
         public ApplicationUser()

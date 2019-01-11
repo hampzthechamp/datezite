@@ -185,10 +185,20 @@ namespace datezite.Controllers
                 var bdUsers = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
                 var userImage = bdUsers.Users.Where(u => u.Id == userId).FirstOrDefault();
 
-                return new FileContentResult(userImage.UserPhoto, "image/jpeg");
+                return new FileContentResult(userImage.UserPhoto, "image/jpeg");            
+        }
 
-            
-            
+        public ActionResult SearchView(SearchResults model, String searchName) {
+            var result = new List<ApplicationUser>();
+            var allUsers = _context.Users.ToList();
+
+            if (!String.IsNullOrEmpty(searchName))
+            {
+                result = allUsers.Where(u => u.Förnamn == searchName || u.Efternamn == searchName || u.Förnamn + " " + u.Efternamn == searchName).ToList();
+            }
+            model.Results = result;
+
+            return View(model);
         }
     }
 }
