@@ -103,6 +103,9 @@ namespace datezite.Models
         [Display(Name = "Sysselsättning")]
         public string Sysselsättning {get;set;}
 
+        [Display(Name = "UserPhoto")]
+        public byte[] UserPhoto { get; set; }
+
 
         public enum Gender
         {
