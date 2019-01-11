@@ -7,13 +7,13 @@
 
 <h2></h2>
 <div class="container-fluid">
-    
+
 
     <div class="row" style="padding-left: 300px;">
 
         @using (Html.BeginForm("Update", "User"))
         {
-            <div class="row">
+        //    <div class="row">
                 <div class="col">
                     <div class="form-group">
                         @Html.LabelFor(m => m.Förnamn)
@@ -44,20 +44,22 @@
                         @Html.TextBoxFor(m => m.Ålder, new { @class = "form-control" })
 
                     </div>
-
                 </div>
-            </div>
-            <button type="submit" class="btn btn-primary btn-primary">Spara</button>
-        }
-            <div class="form-group">
-                @Html.LabelFor(m => m.Interests)
-                @Html.DropDownListFor(m => m.Interests, new SelectList(Model.Interests, "InterestID", "Name"), " ", new { @class = "form-control" })
-                @*@Html.DropDownList("Intressen", ViewBag.intresseLista as SelectList, "Please select", new { @class = "form-control" })*@
+           // </div>
 
-            </div>
-        
+        <button type="submit" class="btn btn-primary btn-primary">Spara</button>
+    }
+        <div class="form-group">
+            @Html.LabelFor(m => m.Interests)
+            @Html.DropDownListFor(m => m.Interests, new SelectList(Model.Interests, "InterestID", "Name"), " ", new { @class = "form-control" })
+            @*@Html.DropDownList("Intressen", ViewBag.intresseLista as SelectList, "Please select", new { @class = "form-control" })*@
 
+        </div>
     </div>
+
+
+
+        </div>
 </div>
 
 
