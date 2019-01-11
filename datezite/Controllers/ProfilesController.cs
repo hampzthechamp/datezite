@@ -152,7 +152,5 @@ namespace datezite.Controllers
                 return File(imageData, "image/png");
             }
         }
-
-
     }
 }
