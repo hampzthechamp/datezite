@@ -9,9 +9,9 @@ public class MockInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbCon
     {
         base.Seed(_context);
 
-        var intresse1 = (new Interests {InterestID = 12, Name = "Fågelskådning"});
-        var intresse2 = (new Interests {InterestID = 13, Name = "Hälsa" });
-        var intresse3 = (new Interests {InterestID = 14, Name = "Pengar" });
+        var intresse1 = (new Interests {Name = "Fågelskådning"});
+        var intresse2 = (new Interests {Name = "Hälsa" });
+        var intresse3 = (new Interests {Name = "Pengar" });
          
         _context.Intressen.Add(intresse1);
         _context.Intressen.Add(intresse2);
