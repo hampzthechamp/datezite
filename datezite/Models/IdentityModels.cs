@@ -30,6 +30,7 @@ namespace datezite.Models
         public ICollection<ApplicationUser> Vänner { get; set; }
         public ICollection<Entry> Inlägg { get; set; }
         public virtual ICollection<Interests> Intressen { get; set; }
+        public byte[] UserPhoto { get; set; }
 
         public ApplicationUser()
         {

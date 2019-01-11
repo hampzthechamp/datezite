@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using datezite.Models;
+using System.IO;
 
 namespace datezite.Controllers
 {
@@ -147,11 +148,26 @@ namespace datezite.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register([Bind(Exclude = "UserPhoto")]RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) { 
+
+                byte[] imageData = null;
+            if (Request.Files.Count > 0)
             {
+                    HttpPostedFileBase poImgFile = Request.Files["UserPhoto"];
+
+                    using (var binary = new BinaryReader(poImgFile.InputStream))
+                    {
+                        imageData = binary.ReadBytes(poImgFile.ContentLength);
+                    }
+            }
+
+            
                 var user = new ApplicationUser { UserName = model.Email , Email = model.Email, Kön = model.Kön.ToString(), Förnamn = model.Förnamn, Efternamn = model.Efternamn, Ålder = model.Ålder, Sysselsättning = model.Sysselsättning };
+
+                user.UserPhoto = imageData;
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

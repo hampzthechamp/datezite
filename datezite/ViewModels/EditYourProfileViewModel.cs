@@ -17,6 +17,7 @@ namespace datezite.ViewModels
         public int Ålder { get; set; }
         public string Lösenord { get; set; }
         public string Sysselsättning { get; set; }
-        
+        public byte[] UserPhoto { get; set; }
+
     }
 }
