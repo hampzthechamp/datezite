@@ -6,7 +6,9 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    @using Microsoft.AspNet.Identity
+    @using datezite.Models
+    
 </head>
 <body style="padding-top:unset; padding-bottom:unset">
 
@@ -31,15 +33,35 @@
                 <li class="nav-item ">
                     <a class="nav-link" @Html.ActionLink("Logga ut", "Index", "Home") </a>
                 </li>
+
+
+
+
             </ul>
-            @using (Html.BeginForm("SearchView", "Profiles", new {@class = "form-inline my-2 my-lg-0"}))
+            @using (var _context = new ApplicationDbContext())
             {
-                <p>
+                var activeUserFriendReq = _context.Friendrequests.Where(fr => fr.FriendId == HttpContext.Current.User.Identity.GetUserId());
+                if (0 >= activeUserFriendReq.Count())
+                {
+                    <img src="~/Images/user_white_klippt.png" style="width:30px; height:30px" id="friendReq" @Url.Action("YourProfile", "Profiles")/>
+
+                }
+                else
+                {
+                    <img src="~/Images/user_white_dot.png" style="width:35px; height:35px" id="friendReq" @Url.Action("YourProfile", "Profiles")/>
+                }
+            }
+
+
+
+            @using (Html.BeginForm("SearchView", "Profiles", new { @class = "form-inline my-2 my-lg-0" }))
+            {
+                <p style="padding-left: 20px">
                     Sök: @Html.TextBox("searchName")
                     <input type="submit" value="search" />
                 </p>
             }
-            
+
         </div>
     </nav>
 
@@ -50,7 +72,13 @@
             <p>&copy; @DateTime.Now.Year - LTP Dating</p>
         </footer>
     </div>
+    <script>
+        
 
+    </script>
+    
+       
+   
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
