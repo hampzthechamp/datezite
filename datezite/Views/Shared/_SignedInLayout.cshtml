@@ -20,7 +20,7 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item ">
-                 <a class="nav-link"   @Html.ActionLink("Potentiella matchningar", "PotentialMatches") </a>
+                    <a class="nav-link" @Html.ActionLink("Potentiella matchningar", "PotentialMatches") </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" @Html.ActionLink("Mina Matchningar", "MyMatches") </a>
@@ -29,9 +29,18 @@
                     <a class="nav-link" @Html.ActionLink("Min profil", "YourProfile") </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link"@Html.ActionLink("Logga ut","Index","Home") </a>
+                    <a class="nav-link" @Html.ActionLink("Logga ut", "Index", "Home") </a>
                 </li>
-</div>
+            </ul>
+            @using (Html.BeginForm("SearchView", "Profiles", new {@class = "form-inline my-2 my-lg-0"}))
+            {
+                <p>
+                    Sök: @Html.TextBox("searchName")
+                    <input type="submit" value="search" />
+                </p>
+            }
+            
+        </div>
     </nav>
 
     <div class="container body-content">
