@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+@using datezite.Models
 @model datezite.Models.ApplicationUser
 
 
@@ -36,7 +37,7 @@
                 <h5 class="card-title">@Html.DisplayFor(m => m.Kön), @Html.DisplayFor(m => m.Ålder)</h5>
             </div>
 
-            <img src="@Url.Action("UserPhotos", "Profiles" )" style="width:250px;height:250px; background: #FFFFFF;
+            <img src="@Url.Action("UserPhotos", "Profiles")" style="width:250px;height:250px; background: #FFFFFF;
                 margin: auto;
                 -moz-border-radius: 60px;
                 border-radius: 100px;
@@ -67,17 +68,26 @@
 
         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 20px" id="send">Publicera</button>
         <div id="inlägg">
-            @*@foreach (var entry in Model.Inlägg)
+             
+                    
+                    @foreach (var entry in Model.Inlägg.Reverse())
                     {
-                <div class="card border-light mb-3" style="max-width: 20rem; ">
-                    <div class="card-header">@entry.Author.Förnamn @entry.Author.Efternamn</div>
-                    <div class="card-body">
+                        var getAuthor = new GetApplicationUser();
+                        var author = getAuthor.GerUserById(entry.AuthorId);
 
-                        <p class="card-text">@entry.Content</p>
-                    </div>
-                </div>
 
-                }*@
+                        <div class="card border-light mb-3" style="max-width: 20rem; ">
+                            <div class="card-header"><a href="@Url.Action("OtherProfile", "Profiles", new { id = entry.AuthorId })">@author.Förnamn @author.Efternamn</a><p style="float:right">#<a id="msgId" >@entry.Id</a></p></div>
+                            <div class="card-body">
+
+                                <p class="card-text" id="cont">@entry.Content</p>
+                                <button data-id="@entry.Id" type="button" class="btn btn-primary btn-sm btn-del" style="float:right">Radera Inlägg</button>
+                            </div>
+                        
+                        </div>
+
+                    }
+                
         </div>
     </div>
 
@@ -85,6 +95,34 @@
 </div>
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 <script>
+
+    $('#inlägg').on('click', '.btn-del[data-id]', function () {
+
+        //Denna funktion gör att det går att ta bort inlägg från väggen och radera dem ur databasen.
+        
+        var entry = {
+            Id: $(this).attr('data-id'),
+            Content: $('cont').val()
+        };
+
+        console.log(entry.Content);
+
+        $.ajax({
+            type: 'DELETE',
+            data: JSON.stringify(entry),
+            url: '@Url.Action("DeleteFromDb", "EntryApi", new { httproute = "" })',
+            contentType: 'application/json',
+            dataType: 'JSON',
+            success: function (data) {
+                location.reload();
+            }
+
+        });
+
+
+    });
+
+    //Denna funktion sparar det skrivna inlägget i databasen.
     $('#send').on('click', function () {
 
         var repId = "@Model.Id";
@@ -105,6 +143,7 @@
             url: '@Url.Action("Post", "EntryApi", new { httproute = "" } )',
             success: function (data) {
                 $('#entryCont').val('');
+                location.reload();
 
             }
         });

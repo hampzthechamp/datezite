@@ -60,26 +60,30 @@
 
         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 20px" id="send">Publicera</button>
         <div id="inlägg">
-            @*@foreach (var entry in Model.Entrys)
-                {
-                <div class="card border-light mb-3" style="max-width: 20rem; ">
-                    <div class="card-header"><a href="" class="card-link">@entry.Author.Firstname @entry.Author.Lastname</a></div>
-                    <div class="card-body">
+            @foreach (var entry in Model.Inlägg.Reverse())
+            {
+                var getAuthor = new GetApplicationUser();
+                var author = getAuthor.GerUserById(entry.AuthorId);
 
-                        <p class="card-text">@entry.Content</p>
+                    <div class="card border-light mb-3" style="max-width: 20rem; ">
+                        <div class="card-header"><a href="@Url.Action("OtherProfile", "Profiles", new { id = entry.AuthorId })" class="card-link">@author.Förnamn @author.Efternamn</a></div>
+                        <div class="card-body">
+
+                            <p class="card-text">@entry.Content</p>
+                        </div>
                     </div>
-                </div>
-                }*@
+            }
         </div>
     </div>
 
 
 </div>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
 <script>
     $('#send').on('click', function () {
 
-        var repId = @Model.Id
-        var authId = @HttpContext.Current.User.Identity.GetUserId();
+        var repId = "@Model.Id";
+        var authId = "@HttpContext.Current.User.Identity.GetUserId()";
         var cont = $('#entryCont').val();
         var objEntry = {
             Content: cont,
@@ -96,6 +100,7 @@
             url: '@Url.Action("Post", "EntryApi", new { httproute = "" })',
             success: function (data) {
                 $('entryCont').val('');
+                location.reload();
 
             }
         });
