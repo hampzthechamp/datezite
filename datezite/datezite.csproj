@@ -280,6 +280,22 @@
     <Compile Include="Migrations\201901121614261_t.Designer.cs">
       <DependentUpon>201901121614261_t.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901121732408_listInFrienreq.cs" />
+    <Compile Include="Migrations\201901121732408_listInFrienreq.Designer.cs">
+      <DependentUpon>201901121732408_listInFrienreq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901122006230_y.cs" />
+    <Compile Include="Migrations\201901122006230_y.Designer.cs">
+      <DependentUpon>201901122006230_y.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901122018220_printingListOfFriends.cs" />
+    <Compile Include="Migrations\201901122018220_printingListOfFriends.Designer.cs">
+      <DependentUpon>201901122018220_printingListOfFriends.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901122147397_a1.cs" />
+    <Compile Include="Migrations\201901122147397_a1.Designer.cs">
+      <DependentUpon>201901122147397_a1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Friends.cs" />
@@ -392,6 +408,7 @@
     <Content Include="Views\Profiles\MyMatches.cshtml" />
     <Content Include="Views\Entry\EntryViewPartial.cshtml" />
     <Content Include="Views\Profiles\SearchView.cshtml" />
+    <Content Include="Views\Profiles\FriendRequests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -474,6 +491,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901121614261_t.resx">
       <DependentUpon>201901121614261_t.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901121732408_listInFrienreq.resx">
+      <DependentUpon>201901121732408_listInFrienreq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901122006230_y.resx">
+      <DependentUpon>201901122006230_y.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901122018220_printingListOfFriends.resx">
+      <DependentUpon>201901122018220_printingListOfFriends.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901122147397_a1.resx">
+      <DependentUpon>201901122147397_a1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -99,15 +99,28 @@ namespace datezite.Controllers
         public ActionResult YourProfile(ApplicationUser model)
         {
             var user = fetchUser.GetUserByName(User.Identity.Name);
+            var allFriends = _context.Friends.ToList();
             model.Förnamn = user.Förnamn;
             model.Efternamn = user.Efternamn;
             model.Ålder = user.Ålder;
             model.Kön = user.Kön;
             model.Id = user.Id;
-            
             model.Sysselsättning = user.Sysselsättning;
             model.UserPhoto = user.UserPhoto;
             model.Inlägg = user.Inlägg;
+            model.ListOfFriends = new List<ApplicationUser>();
+            
+            foreach (var f in allFriends)
+            {
+                if (f.UserId == user.Id)
+                {
+                    model.ListOfFriends.Add(GetOtherUser(f.FriendId));
+                }
+                if (f.FriendId == user.Id)
+                {
+                    model.ListOfFriends.Add(GetOtherUser(f.UserId));
+                }
+            }
             return View(model);
         }
         public ActionResult PotentialMatches()
@@ -152,7 +165,6 @@ namespace datezite.Controllers
 
         public FileContentResult UserPhotos()
         {
-            
                 String userId = User.Identity.GetUserId();
                 var LoggedInUser = fetchUser.GetUserByName(User.Identity.Name);
                 if (LoggedInUser.UserPhoto == null)
@@ -172,13 +184,10 @@ namespace datezite.Controllers
                 var userImage = bdUsers.Users.Where(u => u.Id == userId).FirstOrDefault();
 
                 return new FileContentResult(userImage.UserPhoto, "image/jpeg");
-                
-            
         }
 
         public FileContentResult OtherUsersPhoto(String Id)
-        {
-                
+        {  
                 String userId = Id;
                 var OtherUser = GetOtherUser(userId);
                 if (OtherUser.UserPhoto == null)
@@ -193,7 +202,7 @@ namespace datezite.Controllers
 
                     return File(imageData, "image/png");
                 }
-                
+
                 var bdUsers = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
                 var userImage = bdUsers.Users.Where(u => u.Id == userId).FirstOrDefault();
 
@@ -216,18 +225,78 @@ namespace datezite.Controllers
         {
 
             var user = fetchUser.GetUserByName(User.Identity.Name);
-
             var UserToBefriend = GetOtherUser(model.Id);
             UserToBefriend.Id = model.Id;
 
-            _context.Friendrequests.Add(new PendingFriendRequests
+            //Validering
+            var AlreadyFriendsUserId = _context.Friends.Where(f => f.UserId == user.Id && f.FriendId == UserToBefriend.Id).Any();
+            var AlreadyFriendsFriendId = _context.Friends.Where(f => f.UserId == UserToBefriend.Id && f.FriendId == user.Id).Any();
+            var FriendreqAlreadySent = _context.Friendrequests.Where(f => f.UserId == user.Id && f.FriendId == UserToBefriend.Id).Any();
+            var FriendreqAlreadyRecived = _context.Friendrequests.Where(f => f.UserId == UserToBefriend.Id && f.FriendId == user.Id).Any();
+
+            if (AlreadyFriendsUserId == false && AlreadyFriendsFriendId == false) {
+                if (FriendreqAlreadySent == false && FriendreqAlreadyRecived == false) {
+                    _context.Friendrequests.Add(new PendingFriendRequests
+                    {
+                        FriendId = UserToBefriend.Id,
+                        UserId = user.Id
+                    });
+
+                    _context.SaveChanges();
+                }
+            }
+            return RedirectToAction(model.Id, "Profiles/OtherProfile");
+        }
+
+        public ActionResult FriendRequests(PendingFriendRequests model) {
+
+             model.FriendRequests = new List<ApplicationUser>();
+
+            var user = fetchUser.GetUserByName(User.Identity.Name);
+
+            var allFriendRequests = _context.Friendrequests.ToList();
+
+            foreach (var u in allFriendRequests) {
+
+                if (user.Id == u.FriendId) {
+
+                    model.FriendRequests.Add(GetOtherUser(u.UserId));
+                }
+            }
+            return View(model);
+        }
+
+        public ActionResult AcceptFriend(String Id) {
+
+            var user = fetchUser.GetUserByName(User.Identity.Name);
+            
+
+            _context.Friends.Add(new Friends
             {
-                FriendId = UserToBefriend.Id,
+                FriendId = Id,
                 UserId = user.Id
             });
+
+            var friendrequest = _context.Friendrequests.Single(request => request.UserId == Id && request.FriendId == user.Id);
+            var allRequests = _context.Friendrequests.Count();
+
+            _context.Friendrequests.Remove(friendrequest);
             _context.SaveChanges();
 
-            return RedirectToAction(model.Id, "Profiles/OtherProfile");
+            return RedirectToAction("YourProfile");
+        }
+
+        public ActionResult IgnoreFriend(String Id){
+
+            var user = fetchUser.GetUserByName(User.Identity.Name);
+
+            var friendrequest = _context.Friendrequests.Single(request => request.UserId == user.Id && request.FriendId == Id);
+            var allRequests = _context.Friendrequests.Count();
+
+            _context.Friendrequests.Remove(friendrequest);
+            _context.SaveChanges();
+
+            return RedirectToAction("YourProfile");
         }
     }
 }
