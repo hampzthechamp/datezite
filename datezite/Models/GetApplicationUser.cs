@@ -21,6 +21,14 @@ namespace datezite.Models
         public ApplicationUser GetUserByName(string name)
         {
             var appUser = _context.Users.Single(u => u.UserName == name);
+
+            foreach (var entry in _context.Entries)
+            {
+                if (entry.RecipientId == appUser.Id)
+                {
+                    appUser.Inlägg.Add(entry);
+                }
+            }
             return appUser;
 
 
@@ -29,14 +37,6 @@ namespace datezite.Models
         public ApplicationUser GerUserById(string id)
         {
             var appUser = _context.Users.Single(u => u.Id == id);
-            
-            foreach(var entry in _context.Entries)
-            {
-                if(id == entry.RecipientId)
-                {
-                    appUser.Inlägg.Add(entry);
-                }
-            }
 
             return appUser;
 

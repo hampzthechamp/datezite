@@ -28,9 +28,11 @@ namespace datezite.Models
   //      public string Intressen { get; set; }
         public bool IsFriend = false;
         public ICollection<ApplicationUser> Vänner { get; set; }
-        public ICollection<Entry> Inlägg { get; set; }
+        public ICollection<Entry> Inlägg = new List<Entry>();
         public virtual ICollection<Interests> Intressen { get; set; }
         public byte[] UserPhoto { get; set; }
+        
+        
 
         public ApplicationUser()
         {

@@ -101,9 +101,11 @@ namespace datezite.Controllers
             model.Efternamn = user.Efternamn;
             model.Ålder = user.Ålder;
             model.Kön = user.Kön;
-            model.Intressen = user.Intressen;
+            model.Id = user.Id;
+            
             model.Sysselsättning = user.Sysselsättning;
             model.UserPhoto = user.UserPhoto;
+            model.Inlägg = user.Inlägg;
             return View(model);
         }
         public ActionResult PotentialMatches()

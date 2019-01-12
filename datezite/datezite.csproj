@@ -244,10 +244,6 @@
     <Compile Include="Migrations\201901101846507_mig1.Designer.cs">
       <DependentUpon>201901101846507_mig1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901111201213_test1.cs" />
-    <Compile Include="Migrations\201901111201213_test1.Designer.cs">
-      <DependentUpon>201901111201213_test1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201901111253010_PopulateIntrestsDatabase.cs" />
     <Compile Include="Migrations\201901111253010_PopulateIntrestsDatabase.Designer.cs">
       <DependentUpon>201901111253010_PopulateIntrestsDatabase.cs</DependentUpon>
@@ -255,6 +251,14 @@
     <Compile Include="Migrations\201901111311344_PopulateIteres2.cs" />
     <Compile Include="Migrations\201901111311344_PopulateIteres2.Designer.cs">
       <DependentUpon>201901111311344_PopulateIteres2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901111711477_inlägg.cs" />
+    <Compile Include="Migrations\201901111711477_inlägg.Designer.cs">
+      <DependentUpon>201901111711477_inlägg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901111715324_asd.cs" />
+    <Compile Include="Migrations\201901111715324_asd.Designer.cs">
+      <DependentUpon>201901111715324_asd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -420,14 +424,17 @@
     <EmbeddedResource Include="Migrations\201901101846507_mig1.resx">
       <DependentUpon>201901101846507_mig1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901111201213_test1.resx">
-      <DependentUpon>201901111201213_test1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901111253010_PopulateIntrestsDatabase.resx">
       <DependentUpon>201901111253010_PopulateIntrestsDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901111311344_PopulateIteres2.resx">
       <DependentUpon>201901111311344_PopulateIteres2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901111711477_inlägg.resx">
+      <DependentUpon>201901111711477_inlägg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901111715324_asd.resx">
+      <DependentUpon>201901111715324_asd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
