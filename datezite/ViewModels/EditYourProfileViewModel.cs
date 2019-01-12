@@ -21,6 +21,7 @@ namespace datezite.ViewModels
         public string Sysselsättning { get; set; }
         [Display(Name = "Profilbild")]
         public byte[] UserPhoto { get; set; }
+        
 
     }
 }

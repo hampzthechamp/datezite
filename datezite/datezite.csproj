@@ -260,8 +260,29 @@
     <Compile Include="Migrations\201901111715324_asd.Designer.cs">
       <DependentUpon>201901111715324_asd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\.cs" />
+    <Compile Include="Migrations\.Designer.cs">
+      <DependentUpon>.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901121609231_a.cs" />
+    <Compile Include="Migrations\201901121609231_a.Designer.cs">
+      <DependentUpon>201901121609231_a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901121611013_d.cs" />
+    <Compile Include="Migrations\201901121611013_d.Designer.cs">
+      <DependentUpon>201901121611013_d.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901121612442_g.cs" />
+    <Compile Include="Migrations\201901121612442_g.Designer.cs">
+      <DependentUpon>201901121612442_g.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901121614261_t.cs" />
+    <Compile Include="Migrations\201901121614261_t.Designer.cs">
+      <DependentUpon>201901121614261_t.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Friends.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\GetApplicationUser.cs" />
     <Compile Include="Models\Interests.cs" />
@@ -269,6 +290,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\DatingDbContext.cs" />
     <Compile Include="Models\MockInitializer.cs" />
+    <Compile Include="Models\PendingFriendRequests.cs" />
     <Compile Include="Models\Profiles.cs" />
     <Compile Include="Models\SearchResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -437,6 +459,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901111715324_asd.resx">
       <DependentUpon>201901111715324_asd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\.resx">
+      <DependentUpon>.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901121609231_a.resx">
+      <DependentUpon>201901121609231_a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901121611013_d.resx">
+      <DependentUpon>201901121611013_d.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901121612442_g.resx">
+      <DependentUpon>201901121612442_g.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901121614261_t.resx">
+      <DependentUpon>201901121614261_t.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

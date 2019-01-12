@@ -33,8 +33,6 @@ namespace datezite.Models
         public virtual ICollection<Interests> Intressen { get; set; }
         [Display(Name = "Profilbild")]
         public byte[] UserPhoto { get; set; }
-        
-        
 
         public ApplicationUser()
         {
@@ -52,7 +50,10 @@ namespace datezite.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        
+
+
+        public DbSet<PendingFriendRequests> Friendrequests { get; set; }
+        public DbSet<Friends> Friends { get; set; }
         public DbSet<Entry> Entries { get; set; }
         public DbSet<Interests> Intressen { get; set; }
         public ApplicationDbContext()
@@ -62,11 +63,17 @@ namespace datezite.Models
 
         public static ApplicationDbContext Create()
         {
-            //Database.SetInitializer<ApplicationDbContext>(new MockInitializer());
+            Database.SetInitializer<ApplicationDbContext>(new MockInitializer());
             return new ApplicationDbContext();
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Friends>()
+                .HasKey(k => new { k.FriendId, k.UserId });
+
+            modelBuilder.Entity<PendingFriendRequests>()
+                .HasKey(k => new { k.FriendId, k.UserId });
+
             modelBuilder.Entity<ApplicationUser>()
              .HasMany(användare => användare.Intressen)
              .WithMany(intresse => intresse.Användare)

@@ -11,12 +11,14 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace datezite.Controllers
 {
+    
     public class ProfilesController : Controller
     {
         GetApplicationUser fetchUser = new GetApplicationUser();
         private ApplicationDbContext _context;
         //  private InterestDBContext db = new InterestDBContext();
 
+            
         public ProfilesController()
         {
             _context = new ApplicationDbContext();
@@ -24,6 +26,7 @@ namespace datezite.Controllers
 
         public ActionResult Update(ApplicationUser LoggedInUser)
         {
+            
 
             var UserToChange = fetchUser.GetUserByName(User.Identity.Name);
 
@@ -82,7 +85,6 @@ namespace datezite.Controllers
             viewModel.Sysselsättning = username.Sysselsättning;
             viewModel.Kön = username.Kön;
             return View(viewModel);
-
         }
 
         protected override void Dispose(bool disposing)
@@ -210,10 +212,22 @@ namespace datezite.Controllers
 
             return View(model);
         }
-
-        public ActionResult Return()
+        public ActionResult AddFriend(ApplicationUser model)
         {
-            return RedirectToAction("YourProfile");
+
+            var user = fetchUser.GetUserByName(User.Identity.Name);
+
+            var UserToBefriend = GetOtherUser(model.Id);
+            UserToBefriend.Id = model.Id;
+
+            _context.Friendrequests.Add(new PendingFriendRequests
+            {
+                FriendId = UserToBefriend.Id,
+                UserId = user.Id
+            });
+            _context.SaveChanges();
+
+            return RedirectToAction(model.Id, "Profiles/OtherProfile");
         }
     }
 }

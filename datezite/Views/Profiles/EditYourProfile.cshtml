@@ -50,12 +50,12 @@
 
             <button type="submit" class="btn btn-primary btn-primary">Spara</button>
         }
-
+        
         <div class="form-group">
             @Html.LabelFor(m => m.Interests)
             @Html.DropDownListFor(m => m.Interests, new SelectList(Model.Interests, "InterestID", "Name"), " ", new { @class = "form-control" })
             @*@Html.DropDownList("Intressen", ViewBag.intresseLista as SelectList, "Please select", new { @class = "form-control" })*@
-
+            
 
             @using (Html.BeginForm("ChangeProfilePicture", "Profiles", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
