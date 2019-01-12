@@ -260,8 +260,17 @@
     <Compile Include="Migrations\201901111629126_bild.Designer.cs">
       <DependentUpon>201901111629126_bild.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901121424099_h.cs" />
+    <Compile Include="Migrations\201901121424099_h.Designer.cs">
+      <DependentUpon>201901121424099_h.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901121549390_tesa.cs" />
+    <Compile Include="Migrations\201901121549390_tesa.Designer.cs">
+      <DependentUpon>201901121549390_tesa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Friends.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\GetApplicationUser.cs" />
     <Compile Include="Models\Interests.cs" />
@@ -269,6 +278,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\DatingDbContext.cs" />
     <Compile Include="Models\MockInitializer.cs" />
+    <Compile Include="Models\PendingFriendRequests.cs" />
     <Compile Include="Models\Profiles.cs" />
     <Compile Include="Models\SearchResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -437,6 +447,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901111629126_bild.resx">
       <DependentUpon>201901111629126_bild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901121424099_h.resx">
+      <DependentUpon>201901121424099_h.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901121549390_tesa.resx">
+      <DependentUpon>201901121549390_tesa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
