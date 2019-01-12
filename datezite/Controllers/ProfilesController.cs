@@ -121,13 +121,21 @@ namespace datezite.Controllers
 
             var user = _context.Users.Single(u => u.UserName == model.UserName);
 
+            model.Id = user.Id;
             model.Förnamn = user.Förnamn;
             model.Efternamn = user.Efternamn;
             model.Ålder = user.Ålder;
             model.Kön = user.Kön;
-            model.Intressen = user.Intressen;
+            //model.Intressen = user.Intressen;
             model.Sysselsättning = user.Sysselsättning;
             model.UserName = user.UserName;
+            foreach(var entry in _context.Entries)
+            {
+                if (model.Id == entry.RecipientId)
+                {
+                    model.Inlägg.Add(entry);
+                }
+            }
             
 
             return View(model);
@@ -201,6 +209,11 @@ namespace datezite.Controllers
             model.Results = result;
 
             return View(model);
+        }
+
+        public ActionResult Return()
+        {
+            return RedirectToAction("YourProfile");
         }
     }
 }

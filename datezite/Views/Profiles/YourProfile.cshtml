@@ -37,7 +37,7 @@
                 <h5 class="card-title">@Html.DisplayFor(m => m.Kön), @Html.DisplayFor(m => m.Ålder)</h5>
             </div>
 
-            <img src="@Url.Action("UserPhotos", "Profiles" )" style="width:250px;height:250px; background: #FFFFFF;
+            <img src="@Url.Action("UserPhotos", "Profiles")" style="width:250px;height:250px; background: #FFFFFF;
                 margin: auto;
                 -moz-border-radius: 60px;
                 border-radius: 100px;
@@ -68,24 +68,26 @@
 
         <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 20px" id="send">Publicera</button>
         <div id="inlägg">
-            
-               @foreach (var entry in Model.Inlägg)
-                {
-                    var getAuthor = new GetApplicationUser();
-                    var author = getAuthor.GerUserById(entry.AuthorId);
+             
+                    
+                    @foreach (var entry in Model.Inlägg.Reverse())
+                    {
+                        var getAuthor = new GetApplicationUser();
+                        var author = getAuthor.GerUserById(entry.AuthorId);
 
-                   
-                    <div class="card border-light mb-3" style="max-width: 20rem; ">
-                        <div class="card-header"><a href="">@author.Förnamn @author.Efternamn</a><p style="float:right">#<a id="msgId" >@entry.Id</a></p></div>
-                        <div class="card-body">
 
-                            <p class="card-text" id="cont">@entry.Content</p>
+                        <div class="card border-light mb-3" style="max-width: 20rem; ">
+                            <div class="card-header"><a href="@Url.Action("OtherProfile", "Profiles", new { id = entry.AuthorId })">@author.Förnamn @author.Efternamn</a><p style="float:right">#<a id="msgId" >@entry.Id</a></p></div>
+                            <div class="card-body">
+
+                                <p class="card-text" id="cont">@entry.Content</p>
+                                <button data-id="@entry.Id" type="button" class="btn btn-primary btn-sm btn-del" style="float:right">Radera Inlägg</button>
+                            </div>
+                        
                         </div>
-                        <button data-id="@entry.Id" value="@entry.Id" type="button" class="btn btn-primary btn-sm btn-del" style="float:right">Radera Inlägg</button>
-                    </div>
 
-                }
-            
+                    }
+                
         </div>
     </div>
 
@@ -112,7 +114,7 @@
             contentType: 'application/json',
             dataType: 'JSON',
             success: function (data) {
-                alert("kanon");
+                location.reload();
             }
 
         });
@@ -141,6 +143,7 @@
             url: '@Url.Action("Post", "EntryApi", new { httproute = "" } )',
             success: function (data) {
                 $('#entryCont').val('');
+                location.reload();
 
             }
         });
