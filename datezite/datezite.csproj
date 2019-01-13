@@ -280,6 +280,26 @@
     <Compile Include="Migrations\201901121835484_hajhaj.Designer.cs">
       <DependentUpon>201901121835484_hajhaj.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901121732408_listInFrienreq.cs" />
+    <Compile Include="Migrations\201901121732408_listInFrienreq.Designer.cs">
+      <DependentUpon>201901121732408_listInFrienreq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901122006230_y.cs" />
+    <Compile Include="Migrations\201901122006230_y.Designer.cs">
+      <DependentUpon>201901122006230_y.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901122018220_printingListOfFriends.cs" />
+    <Compile Include="Migrations\201901122018220_printingListOfFriends.Designer.cs">
+      <DependentUpon>201901122018220_printingListOfFriends.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901122147397_a1.cs" />
+    <Compile Include="Migrations\201901122147397_a1.Designer.cs">
+      <DependentUpon>201901122147397_a1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901131432102_hej.cs" />
+    <Compile Include="Migrations\201901131432102_hej.Designer.cs">
+      <DependentUpon>201901131432102_hej.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Friends.cs" />
@@ -305,6 +325,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\user_red_klippt.png" />
+    <Content Include="Images\user_white_dot.png" />
+    <Content Include="Images\user_white_klippt.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -392,10 +415,10 @@
     <Content Include="Views\Profiles\MyMatches.cshtml" />
     <Content Include="Views\Entry\EntryViewPartial.cshtml" />
     <Content Include="Views\Profiles\SearchView.cshtml" />
+    <Content Include="Views\Profiles\FriendRequests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
     <Folder Include="Views\HeaderAnonymous\" />
     <Folder Include="Views\HeaderSignedIn\" />
     <Folder Include="Views\User\" />
@@ -474,6 +497,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901121835484_hajhaj.resx">
       <DependentUpon>201901121835484_hajhaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901121732408_listInFrienreq.resx">
+      <DependentUpon>201901121732408_listInFrienreq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901122006230_y.resx">
+      <DependentUpon>201901122006230_y.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901122018220_printingListOfFriends.resx">
+      <DependentUpon>201901122018220_printingListOfFriends.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901122147397_a1.resx">
+      <DependentUpon>201901122147397_a1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901131432102_hej.resx">
+      <DependentUpon>201901131432102_hej.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
