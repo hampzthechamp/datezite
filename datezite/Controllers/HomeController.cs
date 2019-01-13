@@ -30,7 +30,7 @@ namespace datezite.Controllers
                 //model.UserName = otherUser.UserName;
 
                 var user = _context.Users.Single(u => u.UserName == "testing@hotmail.com");
-                var user2 = _context.Users.Single(u => u.UserName == "testing2@hotmail.com");
+                var user2 = _context.Users.Single(u => u.UserName == "hejsvejs@hotmail.com");
 
             var exampleProfiles = new List<ApplicationUser>
             {

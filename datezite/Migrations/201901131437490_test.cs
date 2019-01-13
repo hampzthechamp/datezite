@@ -3,7 +3,7 @@ namespace datezite.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class hej : DbMigration
+    public partial class test : DbMigration
     {
         public override void Up()
         {
