@@ -26,6 +26,7 @@ namespace datezite.Models
         public int Ålder { get; set; }
         public string Lösenord { get; set; }
         public string Sysselsättning { get; set; }
+        public List <ApplicationUser> ExempelProfiler { get; set; }
   //      public string Intressen { get; set; }
         public bool IsFriend = false;
         public ICollection<ApplicationUser> Vänner { get; set; }

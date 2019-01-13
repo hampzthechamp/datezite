@@ -276,9 +276,9 @@
     <Compile Include="Migrations\201901121612442_g.Designer.cs">
       <DependentUpon>201901121612442_g.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901121614261_t.cs" />
-    <Compile Include="Migrations\201901121614261_t.Designer.cs">
-      <DependentUpon>201901121614261_t.cs</DependentUpon>
+    <Compile Include="Migrations\201901121835484_hajhaj.cs" />
+    <Compile Include="Migrations\201901121835484_hajhaj.Designer.cs">
+      <DependentUpon>201901121835484_hajhaj.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -472,8 +472,8 @@
     <EmbeddedResource Include="Migrations\201901121612442_g.resx">
       <DependentUpon>201901121612442_g.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901121614261_t.resx">
-      <DependentUpon>201901121614261_t.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901121835484_hajhaj.resx">
+      <DependentUpon>201901121835484_hajhaj.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

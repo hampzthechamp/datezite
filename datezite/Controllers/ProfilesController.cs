@@ -150,11 +150,10 @@ namespace datezite.Controllers
             return appUser;
         }
 
-        public FileContentResult UserPhotos()
+        public FileContentResult UserPhotos(string loggedinId)
         {
-            
-                String userId = User.Identity.GetUserId();
-                var LoggedInUser = fetchUser.GetUserByName(User.Identity.Name);
+            loggedinId = getLoggedInUser();
+                var LoggedInUser = fetchUser.GerUserById(loggedinId);
                 if (LoggedInUser.UserPhoto == null)
                 {
                     string fileName = HttpContext.Server.MapPath(@"~/Images/noImg.jpg");
@@ -169,12 +168,16 @@ namespace datezite.Controllers
                 }
 
                 var bdUsers = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
-                var userImage = bdUsers.Users.Where(u => u.Id == userId).FirstOrDefault();
+                var userImage = bdUsers.Users.Where(u => u.Id == loggedinId).FirstOrDefault();
 
                 return new FileContentResult(userImage.UserPhoto, "image/jpeg");
-                
-            
         }
+        public string getLoggedInUser()
+        {
+            string userId = User.Identity.GetUserId();
+            return userId;
+        }
+
 
         public FileContentResult OtherUsersPhoto(String Id)
         {

@@ -7,13 +7,13 @@ namespace datezite.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class t : IMigrationMetadata
+    public sealed partial class hajhaj : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(t));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(hajhaj));
         
         string IMigrationMetadata.Id
         {
-            get { return "201901121614261_t"; }
+            get { return "201901121835484_hajhaj"; }
         }
         
         string IMigrationMetadata.Source
