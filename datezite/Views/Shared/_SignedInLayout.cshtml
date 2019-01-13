@@ -6,7 +6,8 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    @using Microsoft.AspNet.Identity
+    @using datezite.Models
     
 </head>
 <body style="padding-top:unset; padding-bottom:unset">
@@ -37,12 +38,19 @@
 
 
             </ul>
-     
-                    <img class="friendReq hidden" src="~/Images/user_white_klippt.png" style="width:30px; height:30px" id="friendReq" @Url.Action("YourProfile", "Profiles")/>
+            @using (var _context = new ApplicationDbContext())
+            {
+                var activeUserFriendReq = _context.Friendrequests.Where(fr => fr.FriendId == HttpContext.Current.User.Identity.GetUserId());
+                if (0 >= activeUserFriendReq.Count())
+                {
+                    <img src="~/Images/user_white_klippt.png" style="width:30px; height:30px" id="friendReq" @Url.Action("YourProfile", "Profiles")/>
 
-
-                    <img class="friendReq hidden" src="~/Images/user_white_dot.png" style="width:35px; height:35px" id="friendReq" @Url.Action("YourProfile", "Profiles")/>
-
+                }
+                else
+                {
+                    <img src="~/Images/user_white_dot.png" style="width:35px; height:35px" id="friendReq" @Url.Action("YourProfile", "Profiles")/>
+                }
+            }
 
 
 
