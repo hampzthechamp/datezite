@@ -7,6 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    
 </head>
 <body style="padding-top:unset; padding-bottom:unset">
 
@@ -31,15 +32,28 @@
                 <li class="nav-item ">
                     <a class="nav-link" @Html.ActionLink("Logga ut", "Index", "Home") </a>
                 </li>
+
+
+
+
             </ul>
-            @using (Html.BeginForm("SearchView", "Profiles", new {@class = "form-inline my-2 my-lg-0"}))
+     
+                    <img class="friendReq hidden" src="~/Images/user_white_klippt.png" style="width:30px; height:30px" id="friendReq" @Url.Action("YourProfile", "Profiles")/>
+
+
+                    <img class="friendReq hidden" src="~/Images/user_white_dot.png" style="width:35px; height:35px" id="friendReq" @Url.Action("YourProfile", "Profiles")/>
+
+
+
+
+            @using (Html.BeginForm("SearchView", "Profiles", new { @class = "form-inline my-2 my-lg-0" }))
             {
-                <p>
+                <p style="padding-left: 20px">
                     Sök: @Html.TextBox("searchName")
                     <input type="submit" value="search" />
                 </p>
             }
-            
+
         </div>
     </nav>
 
@@ -50,7 +64,13 @@
             <p>&copy; @DateTime.Now.Year - LTP Dating</p>
         </footer>
     </div>
+    <script>
+        
 
+    </script>
+    
+       
+   
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
